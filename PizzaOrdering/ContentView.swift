@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        return Text("Hello, world!")
             .padding()
+            .onAppear {
+                async {
+                    let rs = await BackendAPI.getRestaurants()
+                    print(rs)
+                }
+            }
     }
 }
 

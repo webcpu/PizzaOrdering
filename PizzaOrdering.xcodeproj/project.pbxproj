@@ -11,9 +11,16 @@
 		EC8C113F278624B50043DD30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C113E278624B50043DD30 /* ContentView.swift */; };
 		EC8C1141278624B80043DD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C1140278624B80043DD30 /* Assets.xcassets */; };
 		EC8C1144278624B80043DD30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C1143278624B80043DD30 /* Preview Assets.xcassets */; };
-		EC8C114E278624B80043DD30 /* PizzaOrderingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C114D278624B80043DD30 /* PizzaOrderingTests.swift */; };
+		EC8C114E278624B80043DD30 /* BackendAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C114D278624B80043DD30 /* BackendAPITests.swift */; };
 		EC8C1158278624B80043DD30 /* PizzaOrderingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C1157278624B80043DD30 /* PizzaOrderingUITests.swift */; };
 		EC8C115A278624B80043DD30 /* PizzaOrderingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C1159278624B80043DD30 /* PizzaOrderingUITestsLaunchTests.swift */; };
+		EC8C1168278628530043DD30 /* BackendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C1167278628530043DD30 /* BackendAPI.swift */; };
+		EC8C116B278629590043DD30 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C116A278629590043DD30 /* Restaurant.swift */; };
+		EC8C116E27862D320043DD30 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EC8C116D27862D320043DD30 /* Alamofire */; };
+		ECB03AD127864D0D00674599 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD027864D0D00674599 /* Menu.swift */; };
+		ECB03AD327865B1700674599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD227865B1600674599 /* Order.swift */; };
+		ECB03AD6278666B200674599 /* Encodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD5278666B200674599 /* Encodeable.swift */; };
+		ECB03AD82786682400674599 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD72786682400674599 /* Cart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +47,16 @@
 		EC8C1140278624B80043DD30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC8C1143278624B80043DD30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EC8C1149278624B80043DD30 /* PizzaOrderingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaOrderingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC8C114D278624B80043DD30 /* PizzaOrderingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOrderingTests.swift; sourceTree = "<group>"; };
+		EC8C114D278624B80043DD30 /* BackendAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendAPITests.swift; sourceTree = "<group>"; };
 		EC8C1153278624B80043DD30 /* PizzaOrderingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaOrderingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8C1157278624B80043DD30 /* PizzaOrderingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOrderingUITests.swift; sourceTree = "<group>"; };
 		EC8C1159278624B80043DD30 /* PizzaOrderingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOrderingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EC8C1167278628530043DD30 /* BackendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendAPI.swift; sourceTree = "<group>"; };
+		EC8C116A278629590043DD30 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		ECB03AD027864D0D00674599 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		ECB03AD227865B1600674599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		ECB03AD5278666B200674599 /* Encodeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodeable.swift; sourceTree = "<group>"; };
+		ECB03AD72786682400674599 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8C116E27862D320043DD30 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +108,9 @@
 		EC8C113B278624B50043DD30 /* PizzaOrdering */ = {
 			isa = PBXGroup;
 			children = (
+				EC8C11692786289C0043DD30 /* Models */,
+				EC8C1166278628030043DD30 /* Services */,
+				ECB03AD42786669000674599 /* Extensions */,
 				EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */,
 				EC8C113E278624B50043DD30 /* ContentView.swift */,
 				EC8C1140278624B80043DD30 /* Assets.xcassets */,
@@ -113,7 +130,7 @@
 		EC8C114C278624B80043DD30 /* PizzaOrderingTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC8C114D278624B80043DD30 /* PizzaOrderingTests.swift */,
+				EC8C114D278624B80043DD30 /* BackendAPITests.swift */,
 			);
 			path = PizzaOrderingTests;
 			sourceTree = "<group>";
@@ -125,6 +142,33 @@
 				EC8C1159278624B80043DD30 /* PizzaOrderingUITestsLaunchTests.swift */,
 			);
 			path = PizzaOrderingUITests;
+			sourceTree = "<group>";
+		};
+		EC8C1166278628030043DD30 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C1167278628530043DD30 /* BackendAPI.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EC8C11692786289C0043DD30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C116A278629590043DD30 /* Restaurant.swift */,
+				ECB03AD027864D0D00674599 /* Menu.swift */,
+				ECB03AD72786682400674599 /* Cart.swift */,
+				ECB03AD227865B1600674599 /* Order.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ECB03AD42786669000674599 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ECB03AD5278666B200674599 /* Encodeable.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +187,9 @@
 			dependencies = (
 			);
 			name = PizzaOrdering;
+			packageProductDependencies = (
+				EC8C116D27862D320043DD30 /* Alamofire */,
+			);
 			productName = PizzaOrdering;
 			productReference = EC8C1139278624B50043DD30 /* PizzaOrdering.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +262,9 @@
 				Base,
 			);
 			mainGroup = EC8C1130278624B50043DD30;
+			packageReferences = (
+				EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = EC8C113A278624B50043DD30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +307,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB03AD327865B1700674599 /* Order.swift in Sources */,
+				ECB03AD127864D0D00674599 /* Menu.swift in Sources */,
+				EC8C116B278629590043DD30 /* Restaurant.swift in Sources */,
 				EC8C113F278624B50043DD30 /* ContentView.swift in Sources */,
+				ECB03AD6278666B200674599 /* Encodeable.swift in Sources */,
 				EC8C113D278624B50043DD30 /* PizzaOrderingApp.swift in Sources */,
+				EC8C1168278628530043DD30 /* BackendAPI.swift in Sources */,
+				ECB03AD82786682400674599 /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8C114E278624B80043DD30 /* PizzaOrderingTests.swift in Sources */,
+				EC8C114E278624B80043DD30 /* BackendAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaOrdering/Preview Content\"";
+				DEVELOPMENT_TEAM = NA5BE2D52P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -447,6 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaOrdering/Preview Content\"";
+				DEVELOPMENT_TEAM = NA5BE2D52P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -579,6 +637,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC8C116D27862D320043DD30 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC8C1131278624B50043DD30 /* Project object */;
 }
