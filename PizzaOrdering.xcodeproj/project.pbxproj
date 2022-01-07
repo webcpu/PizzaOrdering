@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC12259D2787A23200D4AB49 /* OrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259C2787A23200D4AB49 /* OrderButton.swift */; };
+		EC12259F2787ACC000D4AB49 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259E2787ACC000D4AB49 /* AddItemButton.swift */; };
+		EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC82D9AA2788654B00BD0778 /* Decimal.swift */; };
 		EC8C113D278624B50043DD30 /* PizzaOrderingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */; };
 		EC8C113F278624B50043DD30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C113E278624B50043DD30 /* ContentView.swift */; };
 		EC8C1141278624B80043DD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C1140278624B80043DD30 /* Assets.xcassets */; };
@@ -21,6 +24,20 @@
 		ECB03AD327865B1700674599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD227865B1600674599 /* Order.swift */; };
 		ECB03AD6278666B200674599 /* Encodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD5278666B200674599 /* Encodeable.swift */; };
 		ECB03AD82786682400674599 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD72786682400674599 /* Cart.swift */; };
+		ECB03ADA2786D44100674599 /* RestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD92786D44100674599 /* RestaurantsView.swift */; };
+		ECB03ADD2786E44700674599 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03ADC2786E44700674599 /* Injection.swift */; };
+		ECB03AE02786EEBE00674599 /* LocationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03ADF2786EEBE00674599 /* LocationServiceTests.swift */; };
+		ECB03AE22786F38600674599 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AE12786F38600674599 /* LocationService.swift */; };
+		ECB03AE52786F48500674599 /* SwiftLocation in Frameworks */ = {isa = PBXBuildFile; productRef = ECB03AE42786F48500674599 /* SwiftLocation */; };
+		ECB03AE827871A7A00674599 /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AE727871A7A00674599 /* RestaurantsViewModel.swift */; };
+		ECB03AEA2787354D00674599 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AE92787354D00674599 /* RestaurantView.swift */; };
+		ECB03AEC2787359E00674599 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AEB2787359E00674599 /* RestaurantViewModel.swift */; };
+		ECB03AEE27874B0D00674599 /* MyFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AED27874B0D00674599 /* MyFont.swift */; };
+		ECB03AF02787563B00674599 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AEF2787563A00674599 /* FoodView.swift */; };
+		ECB03AF227875EEF00674599 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF127875EEE00674599 /* CartButton.swift */; };
+		ECB03AF42787713500674599 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF32787713500674599 /* AppState.swift */; };
+		ECB03AF62787925E00674599 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF52787925E00674599 /* CartView.swift */; };
+		ECFBE6F12788DB1E00102D69 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE6F02788DB1E00102D69 /* CheckoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC12259C2787A23200D4AB49 /* OrderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderButton.swift; sourceTree = "<group>"; };
+		EC12259E2787ACC000D4AB49 /* AddItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemButton.swift; sourceTree = "<group>"; };
+		EC82D9AA2788654B00BD0778 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		EC8C1139278624B50043DD30 /* PizzaOrdering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrdering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOrderingApp.swift; sourceTree = "<group>"; };
 		EC8C113E278624B50043DD30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +77,19 @@
 		ECB03AD227865B1600674599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		ECB03AD5278666B200674599 /* Encodeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodeable.swift; sourceTree = "<group>"; };
 		ECB03AD72786682400674599 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		ECB03AD92786D44100674599 /* RestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsView.swift; sourceTree = "<group>"; };
+		ECB03ADC2786E44700674599 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		ECB03ADF2786EEBE00674599 /* LocationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceTests.swift; sourceTree = "<group>"; };
+		ECB03AE12786F38600674599 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		ECB03AE727871A7A00674599 /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
+		ECB03AE92787354D00674599 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		ECB03AEB2787359E00674599 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
+		ECB03AED27874B0D00674599 /* MyFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFont.swift; sourceTree = "<group>"; };
+		ECB03AEF2787563A00674599 /* FoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
+		ECB03AF127875EEE00674599 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		ECB03AF32787713500674599 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		ECB03AF52787925E00674599 /* CartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		ECFBE6F02788DB1E00102D69 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC8C116E27862D320043DD30 /* Alamofire in Frameworks */,
+				ECB03AE52786F48500674599 /* SwiftLocation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +142,8 @@
 		EC8C113B278624B50043DD30 /* PizzaOrdering */ = {
 			isa = PBXGroup;
 			children = (
+				ECB03ADB2786D44900674599 /* Views */,
+				ECB03AE62787132800674599 /* ViewModels */,
 				EC8C11692786289C0043DD30 /* Models */,
 				EC8C1166278628030043DD30 /* Services */,
 				ECB03AD42786669000674599 /* Extensions */,
@@ -131,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				EC8C114D278624B80043DD30 /* BackendAPITests.swift */,
+				ECB03ADF2786EEBE00674599 /* LocationServiceTests.swift */,
 			);
 			path = PizzaOrderingTests;
 			sourceTree = "<group>";
@@ -148,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				EC8C1167278628530043DD30 /* BackendAPI.swift */,
+				ECB03AE12786F38600674599 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -167,8 +205,36 @@
 			isa = PBXGroup;
 			children = (
 				ECB03AD5278666B200674599 /* Encodeable.swift */,
+				ECB03ADC2786E44700674599 /* Injection.swift */,
+				ECB03AED27874B0D00674599 /* MyFont.swift */,
+				EC82D9AA2788654B00BD0778 /* Decimal.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ECB03ADB2786D44900674599 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ECB03AD92786D44100674599 /* RestaurantsView.swift */,
+				ECB03AE92787354D00674599 /* RestaurantView.swift */,
+				ECB03AEF2787563A00674599 /* FoodView.swift */,
+				ECB03AF52787925E00674599 /* CartView.swift */,
+				ECB03AF127875EEE00674599 /* CartButton.swift */,
+				EC12259C2787A23200D4AB49 /* OrderButton.swift */,
+				EC12259E2787ACC000D4AB49 /* AddItemButton.swift */,
+				ECFBE6F02788DB1E00102D69 /* CheckoutView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ECB03AE62787132800674599 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ECB03AE727871A7A00674599 /* RestaurantsViewModel.swift */,
+				ECB03AEB2787359E00674599 /* RestaurantViewModel.swift */,
+				ECB03AF32787713500674599 /* AppState.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +247,7 @@
 				EC8C1135278624B50043DD30 /* Sources */,
 				EC8C1136278624B50043DD30 /* Frameworks */,
 				EC8C1137278624B50043DD30 /* Resources */,
+				ECB03ADE2786E54000674599 /* Code Sign for Xcode Injection */,
 			);
 			buildRules = (
 			);
@@ -189,6 +256,7 @@
 			name = PizzaOrdering;
 			packageProductDependencies = (
 				EC8C116D27862D320043DD30 /* Alamofire */,
+				ECB03AE42786F48500674599 /* SwiftLocation */,
 			);
 			productName = PizzaOrdering;
 			productReference = EC8C1139278624B50043DD30 /* PizzaOrdering.app */;
@@ -264,6 +332,7 @@
 			mainGroup = EC8C1130278624B50043DD30;
 			packageReferences = (
 				EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				ECB03AE32786F48500674599 /* XCRemoteSwiftPackageReference "SwiftLocation" */,
 			);
 			productRefGroup = EC8C113A278624B50043DD30 /* Products */;
 			projectDirPath = "";
@@ -302,19 +371,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ECB03ADE2786E54000674599 /* Code Sign for Xcode Injection */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Code Sign for Xcode Injection";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport CODESIGN_ALLOCATE\\=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate\nINJECTION_APP_RESOURCES=/Applications/InjectionIII.app/Contents/Resources\n/usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY  $INJECTION_APP_RESOURCES/maciOSInjection.bundle/maciOSInjection\n/usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY  $INJECTION_APP_RESOURCES/maciOSSwiftUISupport.bundle/maciOSSwiftUISupport\n/usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY $INJECTION_APP_RESOURCES/maciOSInjection.bundle/Frameworks/SwiftTrace.framework/SwiftTrace\ndefaults write com.johnholdsworth.InjectionIII \"$PROJECT_FILE_PATH\" $EXPANDED_CODE_SIGN_IDENTITY\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC8C1135278624B50043DD30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ECB03AD327865B1700674599 /* Order.swift in Sources */,
+				ECB03AE827871A7A00674599 /* RestaurantsViewModel.swift in Sources */,
 				ECB03AD127864D0D00674599 /* Menu.swift in Sources */,
+				ECB03AF42787713500674599 /* AppState.swift in Sources */,
+				ECB03AEA2787354D00674599 /* RestaurantView.swift in Sources */,
+				EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */,
 				EC8C116B278629590043DD30 /* Restaurant.swift in Sources */,
 				EC8C113F278624B50043DD30 /* ContentView.swift in Sources */,
 				ECB03AD6278666B200674599 /* Encodeable.swift in Sources */,
+				EC12259D2787A23200D4AB49 /* OrderButton.swift in Sources */,
+				ECB03ADD2786E44700674599 /* Injection.swift in Sources */,
+				ECB03AE22786F38600674599 /* LocationService.swift in Sources */,
 				EC8C113D278624B50043DD30 /* PizzaOrderingApp.swift in Sources */,
+				ECB03AEE27874B0D00674599 /* MyFont.swift in Sources */,
+				ECFBE6F12788DB1E00102D69 /* CheckoutView.swift in Sources */,
 				EC8C1168278628530043DD30 /* BackendAPI.swift in Sources */,
+				ECB03AF02787563B00674599 /* FoodView.swift in Sources */,
+				EC12259F2787ACC000D4AB49 /* AddItemButton.swift in Sources */,
+				ECB03ADA2786D44100674599 /* RestaurantsView.swift in Sources */,
 				ECB03AD82786682400674599 /* Cart.swift in Sources */,
+				ECB03AEC2787359E00674599 /* RestaurantViewModel.swift in Sources */,
+				ECB03AF62787925E00674599 /* CartView.swift in Sources */,
+				ECB03AF227875EEF00674599 /* CartButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECB03AE02786EEBE00674599 /* LocationServiceTests.swift in Sources */,
 				EC8C114E278624B80043DD30 /* BackendAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -457,7 +563,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -476,8 +582,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaOrdering/Preview Content\"";
 				DEVELOPMENT_TEAM = NA5BE2D52P;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location will be used to find restaurants near you";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Your location will be used to find restaurants near you";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to find restaurants near you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -488,6 +598,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = uw.PizzaOrdering;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -505,8 +619,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaOrdering/Preview Content\"";
 				DEVELOPMENT_TEAM = NA5BE2D52P;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your location will be used to find restaurants near you";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Your location will be used to find restaurants near you";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to find restaurants near you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -517,6 +635,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = uw.PizzaOrdering;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -647,6 +769,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		ECB03AE32786F48500674599 /* XCRemoteSwiftPackageReference "SwiftLocation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftLocation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -654,6 +784,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		ECB03AE42786F48500674599 /* SwiftLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECB03AE32786F48500674599 /* XCRemoteSwiftPackageReference "SwiftLocation" */;
+			productName = SwiftLocation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

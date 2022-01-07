@@ -14,7 +14,7 @@ struct Food: Codable, Equatable {
     let category: String
     let name: String
     let topping: [String]?
-    let price: Int
+    let price: Decimal
     let rank: Int?
 }
 

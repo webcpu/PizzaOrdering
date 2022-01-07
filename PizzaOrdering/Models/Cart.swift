@@ -8,11 +8,19 @@
 import Foundation
 
 struct Cart: Codable {
-    let items: [LineItem]
-    let restuarantId: Int
+    var items: [LineItem]
+    let restaurantId: Int
 
     enum CodingKeys: String, CodingKey {
         case items = "cart"
-        case restuarantId = "restuarantId"
+        case restaurantId = "restaurantId"
+    }
+    
+    var quantity: Int {
+        return items.map({$0.quantity}).reduce(0, +)
+    }
+    
+    var subtotal: Decimal {
+        return items.map({Decimal($0.quantity) * $0.price!}).reduce(0, +)
     }
 }

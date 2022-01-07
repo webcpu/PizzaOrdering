@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Restaurant: Codable, Equatable {
     let id: Int
@@ -14,6 +15,16 @@ struct Restaurant: Codable, Equatable {
     let address2: String
     let latitude: Double
     let longitude: Double
+}
+
+extension Restaurant {
+    func getLocation() -> CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    func distance(from location: CLLocation) -> CLLocationDistance {
+        return abs(getLocation().distance(from: location))
+    }
 }
 
 func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {

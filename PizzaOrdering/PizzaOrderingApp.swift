@@ -7,11 +7,22 @@
 
 import SwiftUI
 
+
 @main
 struct PizzaOrderingApp: App {
+//    var appState: AppState = AppState().connect()
+    
+    init() {
+        LocationService.default.getCurrentLocation()
+        
+        UITableView.appearance().backgroundColor = .clear
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            RestaurantsView().environmentObject(AppState().connect())
+            //RestaurantView()
         }
     }
 }

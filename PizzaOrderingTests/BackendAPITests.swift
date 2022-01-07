@@ -105,10 +105,10 @@ fileprivate class TestData {
         orderID: 1234412,
         totalPrice: 168,
         orderedAt: "2015-04-09T17:30:47.556Z",
-        esitmatedDelivery: "2015-04-09T17:45:47.556Z",
+        estimatedDelivery: "2015-04-09T17:45:47.556Z",
         status: "ordered")
     
     //old order
-    static let oldOrder = Order(orderID: 1234412, totalPrice: 168, orderedAt: "2015-04-09T17:30:47.556Z", esitmatedDelivery: "2015-04-09T17:50:47.556Z", status: "baking", items: [PizzaOrdering.LineItem(menuItemId: 2, quantity: 1), PizzaOrdering.LineItem(menuItemId: 3, quantity: 1), PizzaOrdering.LineItem(menuItemId: 6, quantity: 2)], restuarantId: 1)
+    static let oldOrder = Order(orderID: 1234412, totalPrice: 168, orderedAt: "2015-04-09T17:30:47.556Z", estimatedDelivery: "2015-04-09T17:50:47.556Z", status: "baking", items: [PizzaOrdering.LineItem(menuItemId: 2, quantity: 1), PizzaOrdering.LineItem(menuItemId: 3, quantity: 1), PizzaOrdering.LineItem(menuItemId: 6, quantity: 2)], restaurantId: 1)
 }
 

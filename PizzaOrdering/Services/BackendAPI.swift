@@ -81,7 +81,7 @@ struct BackendAPI {
         let headers = HTTPHeaders([
             "Content-Type":"application/json; charset=utf-8",
         ])
-        let cart = Cart(items: lineItems, restuarantId: restaurantId)
+        let cart = Cart(items: lineItems, restaurantId: restaurantId)
         let body: [String: Any] = (try? cart.toDictionary()) ?? [:]
         let orderResponse : OrderSummary = await withCheckedContinuation {
             continuation in
