@@ -104,8 +104,8 @@ fileprivate class TestData {
     static let newOrder = OrderSummary(
         orderID: 1234412,
         totalPrice: 168,
-        orderedAt: "2015-04-09T17:30:47.556Z",
-        estimatedDelivery: "2015-04-09T17:45:47.556Z",
+        orderedAt: Date.fromISODateString("2015-04-09T17:30:47.556Z") ?? Date.distantPast,
+        estimatedDelivery: Date.fromISODateString("2015-04-09T17:45:47.556Z") ?? Date.distantPast,
         status: "ordered")
     
     //old order

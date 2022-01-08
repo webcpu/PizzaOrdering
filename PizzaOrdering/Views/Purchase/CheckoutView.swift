@@ -56,11 +56,6 @@ struct SummaryView: View {
                 }
             }
             .listStyle(.grouped)
-            
-            VStack {
-                Spacer()
-                Text("Hi")
-            }
         }
             .navigationBarTitle("Order Summary")
     }
@@ -71,8 +66,8 @@ extension SummaryView {
         let items: KeyValuePairs<String, String> = [
             "Order ID": String(orderSummary.orderID),
             "Total Price": ("SEK " + orderSummary.totalPrice.description),
-            "Ordered At": orderSummary.orderedAt,
-            "Estimated Delivery": orderSummary.estimatedDelivery,
+            "Ordered At": orderSummary.orderedAt.longDateString,
+            "Estimated Delivery": orderSummary.estimatedDelivery.longDateString,
             "Status": String(orderSummary.status.capitalized)]
         return items
     }
