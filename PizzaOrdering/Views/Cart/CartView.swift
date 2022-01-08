@@ -42,8 +42,8 @@ struct CartView: View {
         NavigationView {
             ZStack {
                 List {
-                    ForEach(0..<(appState.cart?.items.count ?? 0), id: \.self) { index in
-                        let item = appState.cart!.items[index]
+                    ForEach(0..<appState.cart.items.count, id: \.self) { index in
+                        let item = appState.cart.items[index]
                         //                    if self.appState.restaurant != nil {
                         LineItemRow(lineItem: item)
                             .frame(maxWidth: .infinity)
@@ -64,7 +64,7 @@ struct CartView: View {
                     NavigationLink(destination: CheckoutView(), isActive: $isLinkActive) {
                         OrderButton(isTapped: $isLinkActive)
                     }
-                    .disabled((appState.cart?.items.count ?? 0) == 0)
+                    .disabled(appState.cart.items.isEmpty)
                 }
             }
             .navigationBarTitle("Shopping Cart")

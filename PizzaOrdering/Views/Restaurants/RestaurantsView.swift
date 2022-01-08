@@ -36,7 +36,7 @@ struct RestaurantsView: View {
                 //.edgesIgnoringSafeArea(.all)
                 //.navigationTitle("Restaurants Near Me" + location.description)
                 
-                if self.appState.cart != nil && self.appState.cart!.items.count > 0 {
+                if !self.appState.cart.isDummy && self.appState.cart.items.count > 0 {
                     VStack {
                         Spacer()
                         CartButton()

@@ -47,7 +47,7 @@ struct AddItemButton: View {
     }
     
     fileprivate func addItem() {
-        dump(appState.cart?.items)
+        dump(appState.cart.items)
         appState.addItem(food: food, quantity: 1)
     }
 

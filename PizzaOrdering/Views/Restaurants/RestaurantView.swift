@@ -24,9 +24,6 @@ struct RestaurantView: View {
     var body: some View {
         ZStack {
             List {
-                Section() {
-                    Text("Hi")
-                }
                 ForEach(viewModel.items, id: \.id) { item in
                     if viewModel.restaurant != nil {
                         NavigationLink(destination: FoodView(restaurant: viewModel.restaurant!, food: item)) {
@@ -58,10 +55,11 @@ struct RestaurantView: View {
         //            .navigationTitle(viewModel.location.description)
         .navigationTitle(viewModel.restaurant?.name ?? "")
         .task {
-            if self.appState.cart == nil { //}|| self.appState.cart?.restaurantId != self.appState.restaurant?.id {
+//            if self.appState.cart == nil { //}|| self.appState.cart?.restaurantId != self.appState.restaurant?.id {
                 self.appState.restaurant = viewModel.restaurant
+            if self.appState.cart.isDummy {
                 self.appState.cart = Cart(items: [], restaurantId: restaurantId)
-            }
+           }
             await viewModel.update()
             self.appState.restaurant = viewModel.restaurant
         }
@@ -90,9 +88,10 @@ struct FoodRow: View {
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Spacer()
                 Text(food.category).opacity(0.5)
+                Spacer()
                 Text(food.name)
+                Spacer()
                 //                Text(restaurant.name)
                 Text("SEK \(food.price.description)").font(.body)
             }

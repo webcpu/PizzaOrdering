@@ -23,4 +23,17 @@ struct Cart: Codable {
     var subtotal: Decimal {
         return items.map({Decimal($0.quantity) * $0.price!}).reduce(0, +)
     }
+    
+    var isDummy: Bool {
+        return self.restaurantId == 0
+    }
+    
+    static var dummyCart: Cart {
+        return Cart(items: [], restaurantId: 0)
+    }
+}
+
+func ==(lhs: Cart, rhs: Cart) -> Bool {
+    return lhs.items == rhs.items &&
+    lhs.restaurantId == rhs.restaurantId
 }

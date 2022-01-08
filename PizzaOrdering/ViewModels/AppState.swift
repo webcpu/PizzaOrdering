@@ -10,7 +10,7 @@ import Combine
 
 public class AppState: ObservableObject {
     @Published var restaurant: Restaurant?
-    @Published var cart: Cart?
+    @Published var cart: Cart = Cart.dummyCart
     @Published var subtotal: Decimal = 0
     @Published var quantity: Int = 0
     var bag = Set<AnyCancellable>()
@@ -26,9 +26,9 @@ public class AppState: ObservableObject {
     }
     
     func addItem(food: Food, quantity: Int) {
-        var items = cart!.items
-        if let index = cart!.items.map({$0.menuItemId}).firstIndex(of: food.id) {
-            var lineItem: LineItem = cart!.items[index]
+        var items = cart.items
+        if let index = cart.items.map({$0.menuItemId}).firstIndex(of: food.id) {
+            var lineItem: LineItem = cart.items[index]
             lineItem.quantity += quantity
             items[index] = lineItem
         } else {
@@ -40,30 +40,31 @@ public class AppState: ObservableObject {
     }
     
     func removeItem(atOffsets offsets: IndexSet) {
-        var items = cart?.items ?? []
+        var items = cart.items
         items.remove(atOffsets: offsets)
         updateCart(items)
     }
     
     func updateCart(_ items: [LineItem]) {
-        cart!.items = items.filter({$0.quantity > 0})
-        quantity = cart!.quantity
-        subtotal = cart!.items.map({item in Decimal(item.quantity) * item.price!}).reduce(0, +)
+        cart.items = items.filter({$0.quantity > 0})
+        quantity = cart.quantity
+        subtotal = cart.items.map({item in Decimal(item.quantity) * item.price!}).reduce(0, +)
     }
     
     func clearCart() {
         DispatchQueue.main.async {
-            self.cart = nil
+            self.cart = Cart.dummyCart
             self.quantity = 0
             self.subtotal = 0
         }
     }
     
     func createOrder() async -> OrderSummary? {
-        guard let restaurantId = cart?.restaurantId,
-              let items = cart?.items else {
-                  return nil
-              }
+        if cart.isDummy {
+            return nil
+        }
+        let restaurantId = cart.restaurantId
+        let items = cart.items
         let orderSummary = await BackendAPI.createOrder(restaurantId, items)
         clearCart()
         return orderSummary
