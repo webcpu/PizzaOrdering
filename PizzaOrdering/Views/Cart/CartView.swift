@@ -98,7 +98,7 @@ struct CartView: View {
 //        })
 //}
 
-struct LineItemRow: View {
+fileprivate struct LineItemRow: View {
     //@EnvironmentObject var appState: AppState
 #if DEBUG
     @ObservedObject var iO = injectionObserver

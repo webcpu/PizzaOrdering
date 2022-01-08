@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var appState: AppState
+#if DEBUG
+    @ObservedObject var iO = injectionObserver
+#endif
     var body: some View {
-        return Text("Hello, world!")
-            .padding()
-            .onAppear {
-                async {
-                    let rs = await BackendAPI.getRestaurants()
-                    print(rs)
-                }
-            }
+            //RestaurantsView()
+            OrdersView()
+            //RestaurantView()
+//        return Text("Hello, world!")
+//            .padding()
+//            .onAppear {
+//                Task {
+//                    let rs = await BackendAPI.getRestaurants()
+//                    print(rs)
+//                }
+//            }
+            .eraseToAnyView()
     }
 }
 

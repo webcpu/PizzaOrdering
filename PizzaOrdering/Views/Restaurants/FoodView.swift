@@ -25,15 +25,18 @@ struct FoodView: View {
     var body: some View {
         ZStack {
             List {
-                Text(food.name).font(.title).fontWeight(.semibold)
-                Section() {
-                    Text("Hi")
+                Section(food.category) {
+                    Text(food.name).font(.title).fontWeight(.semibold)
                 }
-                ForEach(food.topping ?? [], id: \.self) { item in
-                    Text(item)
-                        .frame(maxWidth: .infinity)
-                        .listRowSeparator(.hidden)
-                    
+                if food.topping != nil && food.topping!.count > 0 {
+                    Section("Topping") {
+                        ForEach(food.topping ?? [], id: \.self) { item in
+                            Text(item)
+                                .frame(maxWidth: .infinity)
+                                .listRowSeparator(.hidden)
+                            
+                        }
+                    }
                 }
             }
             .frame(
@@ -52,12 +55,12 @@ struct FoodView: View {
             
             VStack {
                 Spacer()
-                    AddItemButton(restaurant: restaurant, food: food)
-//                Image(systemName: "square.fill")
-//                    .resizable()
-//                    .frame(width: 24.0, height: 18.0)
-//                    .foregroundColor(.pink)
-//                Text("\(10)").foregroundColor(.white)
+                AddItemButton(restaurant: restaurant, food: food)
+                //                Image(systemName: "square.fill")
+                //                    .resizable()
+                //                    .frame(width: 24.0, height: 18.0)
+                //                    .foregroundColor(.pink)
+                //                Text("\(10)").foregroundColor(.white)
             }
         }
         .task {

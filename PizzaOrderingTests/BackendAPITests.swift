@@ -109,6 +109,8 @@ fileprivate class TestData {
         status: "ordered")
     
     //old order
-    static let oldOrder = Order(orderID: 1234412, totalPrice: 168, orderedAt: "2015-04-09T17:30:47.556Z", estimatedDelivery: "2015-04-09T17:50:47.556Z", status: "baking", items: [PizzaOrdering.LineItem(menuItemId: 2, quantity: 1), PizzaOrdering.LineItem(menuItemId: 3, quantity: 1), PizzaOrdering.LineItem(menuItemId: 6, quantity: 2)], restaurantId: 1)
+    static let orderedAt: Date = Date.fromISODateString("2015-04-09T17:30:47.556Z") ?? Date.distantPast
+    static let estimatedDelivery: Date = Date.fromISODateString("2015-04-09T17:50:47.556Z") ?? Date.distantPast
+    static let oldOrder = Order(orderID: 1234412, totalPrice: 168, orderedAt: orderedAt, estimatedDelivery: estimatedDelivery, status: "baking", items: [PizzaOrdering.LineItem(menuItemId: 2, quantity: 1), PizzaOrdering.LineItem(menuItemId: 3, quantity: 1), PizzaOrdering.LineItem(menuItemId: 6, quantity: 2)], restaurantId: 1)
 }
 

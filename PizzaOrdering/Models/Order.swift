@@ -50,9 +50,9 @@ func ==(lhs: LineItem, rhs: LineItem) -> Bool {
 //MARK: - Order
 struct Order: Codable, Equatable{
     var orderID: UInt64// is it big enough?
-    let totalPrice: Int
-    let orderedAt: String
-    let estimatedDelivery: String
+    let totalPrice: Decimal
+    let orderedAt: Date
+    let estimatedDelivery: Date
     let status: String
     
     let items: [LineItem]
@@ -64,6 +64,36 @@ struct Order: Codable, Equatable{
         case estimatedDelivery = "esitmatedDelivery"
         case items = "cart"
         case restaurantId = "restuarantId"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        orderID = try values.decode(UInt64.self, forKey: .orderID)
+        totalPrice = try values.decode(Decimal.self, forKey: .totalPrice)
+        
+        let orderedAtString = try values.decode(String.self, forKey: .orderedAt)
+        orderedAt = Date.fromISODateString(orderedAtString) ?? Date.distantPast
+        
+        let estimatedDeliveryString = try values.decode(String.self, forKey: .estimatedDelivery)
+        estimatedDelivery = Date.fromISODateString(estimatedDeliveryString) ?? Date.distantPast
+        status = try values.decode(String.self, forKey: .status)
+        items = try values.decode([LineItem].self, forKey: .items)
+        restaurantId = try values.decode(Int.self, forKey: .restaurantId)
+    }
+    
+    init(orderID: UInt64, totalPrice: Decimal, orderedAt: Date, estimatedDelivery: Date, status: String, items: [LineItem], restaurantId: Int) {
+        self.orderID = orderID
+        self.totalPrice = totalPrice
+        self.orderedAt = orderedAt
+        self.estimatedDelivery = estimatedDelivery
+        self.status = status
+        self.items = items
+        self.restaurantId = restaurantId
+    }
+    
+    var quantity: Int {
+        return items.map({$0.quantity}).reduce(0, +)
     }
 }
 

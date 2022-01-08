@@ -78,7 +78,6 @@ struct RestaurantRow: View {
             }
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-        //.background(.red)
     }
 }
 
