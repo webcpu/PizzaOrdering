@@ -21,7 +21,7 @@ struct PizzaOrderingApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(CartViewModel().connect())
+            MainView().environmentObject(CartViewModel().connect())
         }
     }
 }

@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		EC12259D2787A23200D4AB49 /* OrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259C2787A23200D4AB49 /* OrderButton.swift */; };
 		EC12259F2787ACC000D4AB49 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259E2787ACC000D4AB49 /* AddItemButton.swift */; };
+		EC7291FC278B635000F417FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7291FB278B635000F417FA /* MainView.swift */; };
 		EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC82D9AA2788654B00BD0778 /* Decimal.swift */; };
 		EC8C113D278624B50043DD30 /* PizzaOrderingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */; };
-		EC8C113F278624B50043DD30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C113E278624B50043DD30 /* ContentView.swift */; };
 		EC8C1141278624B80043DD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C1140278624B80043DD30 /* Assets.xcassets */; };
 		EC8C1144278624B80043DD30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C1143278624B80043DD30 /* Preview Assets.xcassets */; };
 		EC8C114E278624B80043DD30 /* BackendAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C114D278624B80043DD30 /* BackendAPITests.swift */; };
@@ -69,10 +69,10 @@
 /* Begin PBXFileReference section */
 		EC12259C2787A23200D4AB49 /* OrderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderButton.swift; sourceTree = "<group>"; };
 		EC12259E2787ACC000D4AB49 /* AddItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemButton.swift; sourceTree = "<group>"; };
+		EC7291FB278B635000F417FA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EC82D9AA2788654B00BD0778 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		EC8C1139278624B50043DD30 /* PizzaOrdering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrdering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOrderingApp.swift; sourceTree = "<group>"; };
-		EC8C113E278624B50043DD30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EC8C1140278624B80043DD30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC8C1143278624B80043DD30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EC8C1149278624B80043DD30 /* PizzaOrderingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaOrderingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +168,6 @@
 				ECB03AD42786669000674599 /* Extensions */,
 				ECFBE7002789F77F00102D69 /* Utils */,
 				EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */,
-				EC8C113E278624B50043DD30 /* ContentView.swift */,
 				EC8C1140278624B80043DD30 /* Assets.xcassets */,
 				EC8C1142278624B80043DD30 /* Preview Content */,
 			);
@@ -249,6 +248,7 @@
 				ECFBE6FA2789A6B300102D69 /* Cart */,
 				ECFBE6FB2789A71600102D69 /* Purchase */,
 				ECFBE6F42789A57300102D69 /* Orders */,
+				EC7291FB278B635000F417FA /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -483,7 +483,6 @@
 				EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */,
 				EC8C116B278629590043DD30 /* Restaurant.swift in Sources */,
 				ECFBE6FD2789A90700102D69 /* OrdersViewModel.swift in Sources */,
-				EC8C113F278624B50043DD30 /* ContentView.swift in Sources */,
 				ECFBE6F327899F7D00102D69 /* View.swift in Sources */,
 				ECFBE6FF2789F5B700102D69 /* Formatter.swift in Sources */,
 				ECB03AD6278666B200674599 /* Encodeable.swift in Sources */,
@@ -501,6 +500,7 @@
 				ECB03ADA2786D44100674599 /* RestaurantsView.swift in Sources */,
 				ECB03AD82786682400674599 /* Cart.swift in Sources */,
 				ECB03AEC2787359E00674599 /* RestaurantViewModel.swift in Sources */,
+				EC7291FC278B635000F417FA /* MainView.swift in Sources */,
 				ECB03AF62787925E00674599 /* CartView.swift in Sources */,
 				ECB03AF227875EEF00674599 /* CartButton.swift in Sources */,
 			);
