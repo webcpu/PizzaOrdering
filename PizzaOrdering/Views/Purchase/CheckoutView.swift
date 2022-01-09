@@ -42,10 +42,11 @@ struct CheckoutView: View {
 }
 
 struct SummaryView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var items: KeyValuePairs<String, String>
     
     init(_ summary: OrderSummary) {
-        self.items = SummaryView.getSummaryItems(summary)
+        self._items = State(wrappedValue: SummaryView.getSummaryItems(summary))
     }
     
     var body: some View {
@@ -57,7 +58,11 @@ struct SummaryView: View {
             }
             .listStyle(.grouped)
         }
-            .navigationBarTitle("Order Summary")
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {Image(systemName: "arrow.backward")})
+        .navigationBarTitle("Order Summary")
     }
 }
 

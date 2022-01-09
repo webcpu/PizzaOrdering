@@ -9,6 +9,7 @@ import SwiftUI
 import CoreLocation
 
 struct RestaurantView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var appState: AppState
     @State var restaurantId: Int
 #if DEBUG
@@ -17,7 +18,7 @@ struct RestaurantView: View {
     @StateObject var viewModel: RestaurantViewModel
     
     init(restaurantId: Int) {
-        self.restaurantId = restaurantId
+        self._restaurantId = State(wrappedValue: restaurantId)
         self._viewModel = StateObject(wrappedValue: RestaurantViewModel(restaurantId))
     }
     
@@ -49,6 +50,10 @@ struct RestaurantView: View {
                 CartButton()
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            self.presentationMode.wrappedValue.dismiss()
+        }) {Image(systemName: "arrow.backward")})
         //        .background(.clear)
         //.navigationTitle("Restaurants Near Me" + location.description)
         //            .navigationTitle(viewModel.location.description)
