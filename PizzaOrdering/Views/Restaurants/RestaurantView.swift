@@ -30,7 +30,7 @@ struct RestaurantView: View {
                             FoodRow(restaurant: viewModel.restaurant!, food: item)
                         }
                         .frame(maxWidth: .infinity)
-                        .listRowSeparator(.hidden)
+                //        .listRowSeparator(.hidden)
                     }
                 }
                 .frame(
@@ -40,26 +40,24 @@ struct RestaurantView: View {
                     maxHeight: .infinity,
                     alignment: .topLeading
                 )
+//                .listStyle(.grouped)
                 .listStyle(.insetGrouped)
                 //            .listStyle(GroupedListStyle())
             }
-//            if appState.cart != nil && appState.cart!.quantity > 0 {
-                VStack {
-                    Spacer()
-                    CartButton()
-                }
- //           }
+            VStack {
+                Spacer()
+                CartButton()
+            }
         }
         //        .background(.clear)
         //.navigationTitle("Restaurants Near Me" + location.description)
         //            .navigationTitle(viewModel.location.description)
         .navigationTitle(viewModel.restaurant?.name ?? "")
         .task {
-//            if self.appState.cart == nil { //}|| self.appState.cart?.restaurantId != self.appState.restaurant?.id {
-                self.appState.restaurant = viewModel.restaurant
+            self.appState.restaurant = viewModel.restaurant
             if self.appState.cart.isDummy {
                 self.appState.cart = Cart(items: [], restaurantId: restaurantId)
-           }
+            }
             await viewModel.update()
             self.appState.restaurant = viewModel.restaurant
         }
@@ -86,6 +84,7 @@ struct FoodRow: View {
         return URL(string: pizzaURLString) }
     
     var body: some View {
+        
         HStack {
             VStack (alignment: .leading) {
                 Text(food.category).opacity(0.5)
@@ -107,7 +106,14 @@ struct FoodRow: View {
             })
                 .cornerRadius(10)
         }
-        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        //.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        .listRowBackground(
+            Color(.systemGray3).edgesIgnoringSafeArea([.leading, .trailing])
+        )
+        //        .onAppear {
+        //            UITableView.appearance().backgroundColor = .clear
+        //            //            UITableView.back
+        //        }
         //.background(.red)
         .eraseToAnyView()
     }

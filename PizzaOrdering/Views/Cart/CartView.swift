@@ -69,6 +69,11 @@ struct CartView: View {
             }
             .navigationBarTitle("Shopping Cart")
             .navigationBarItems(leading: backButton())
+            .task {
+                if appState.cart.items.isEmpty {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+            }
         }
     }
     //.navigationTitle("Restaurants Near Me" + location.description)
