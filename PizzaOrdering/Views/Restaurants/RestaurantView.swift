@@ -25,27 +25,7 @@ struct RestaurantView: View {
     
     var body: some View {
         ZStack {
-            List {
-                ForEach(viewModel.items, id: \.id) { item in
-                    if !viewModel.restaurant.isDummy {
-                        NavigationLink(destination: FoodView(restaurant: viewModel.restaurant, food: item)) {
-                            FoodRow(restaurant: viewModel.restaurant, food: item)
-                        }
-                        .frame(maxWidth: .infinity)
-                //        .listRowSeparator(.hidden)
-                    }
-                }
-                .frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 0,
-                    maxHeight: .infinity,
-                    alignment: .topLeading
-                )
-//                .listStyle(.grouped)
-                .listStyle(.insetGrouped)
-                //            .listStyle(GroupedListStyle())
-            }
+            internalRestaurantsView
             VStack {
                 Spacer()
                 CartButton()
@@ -70,6 +50,30 @@ struct RestaurantView: View {
         .edgesIgnoringSafeArea(.horizontal)
         .colorMultiply(.white)
         .eraseToAnyView()
+    }
+    
+    var internalRestaurantsView: some View {
+        List {
+            ForEach(viewModel.items, id: \.id) { item in
+                if !viewModel.restaurant.isDummy {
+                    NavigationLink(destination: FoodView(restaurant: viewModel.restaurant, food: item)) {
+                        FoodRow(restaurant: viewModel.restaurant, food: item)
+                    }
+                    .frame(maxWidth: .infinity)
+                    //        .listRowSeparator(.hidden)
+                }
+            }
+            .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity,
+                alignment: .topLeading
+            )
+            //                .listStyle(.grouped)
+            .listStyle(.insetGrouped)
+            //            .listStyle(GroupedListStyle())
+        }
     }
 }
 
@@ -102,12 +106,12 @@ struct FoodRow: View {
             }
             Spacer()
             CachedAsyncImage(url: pizzaURL,
-                       content: { image in
+                             content: { image in
                 image.resizable()
                     .scaledToFill()
                     .frame(width: 160, height: 90)
             },
-                       placeholder: {
+                             placeholder: {
                 ProgressView()
             })
                 .cornerRadius(10)

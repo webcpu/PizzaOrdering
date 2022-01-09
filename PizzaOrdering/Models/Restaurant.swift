@@ -26,6 +26,10 @@ extension Restaurant {
         return abs(getLocation().distance(from: location))
     }
     
+    func distanceInKM(from location: CLLocation) -> Double {
+        return Double(abs(getLocation().distance(from: location)) / 100) / 10
+    }
+    
     var isDummy: Bool {
         return self.id == Restaurant.dummyRestaurant.id
     }

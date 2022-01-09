@@ -12,7 +12,7 @@ import CoreLocation
 import CocoaLumberjackSwift
 
 class RestaurantsViewModel: ObservableObject {
-    @Published var items = [Restaurant]()
+    @Published var items: [Restaurant] = []
     @Published var location: CLLocation = CLLocation()
     
     let locationService = LocationService.default
@@ -29,23 +29,26 @@ class RestaurantsViewModel: ObservableObject {
     
     func updateItems() {
         cancellable = locationService.publisher
-            .flatMap({loc in
-                Future { promise in
-                    Task {
-                        let items = await BackendAPI.getRestaurants()
-                        promise(.success((loc, items)))
-                    }
-                }
-            })
-            .sink(receiveValue:
-                    {(arg0: (CLLocation, [Restaurant])) -> Void in
-                let (location, items) = arg0
-                DDLogInfo("receiveValue: \(arg0)")
-                DispatchQueue.main.async {
-                    self.items = items.sorted(by: self.compareByDistance)
-                    self.location = location
-                }
-            })
+            .flatMap(getRestaurants)
+            .sink(receiveValue: update)
+    }
+    
+    func getRestaurants(_ loc: CLLocation) -> Future<(CLLocation, [Restaurant]), Never> {
+        return Future { promise in
+            Task {
+                let items = await BackendAPI.getRestaurants()
+                promise(.success((loc, items)))
+            }
+        }
+    }
+    
+    func update(_ arg0: (CLLocation, [Restaurant])) {
+        let (location, items) = arg0
+        DDLogInfo("receiveValue: \(arg0)")
+        DispatchQueue.main.async {
+            self.items = items.sorted(by: self.compareByDistance)
+            self.location = location
+        }
     }
     
     func compareByDistance(_ r1: Restaurant, r2: Restaurant) -> Bool {

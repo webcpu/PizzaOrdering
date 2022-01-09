@@ -19,38 +19,45 @@ struct RestaurantsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                List(viewModel.items, id: \.id) { restaurant in
-                    NavigationLink(destination:
-                                    RestaurantView(restaurant: restaurant)) {
-                        RestaurantRow(restaurant: restaurant)
-                    }
-                                    .listRowSeparator(.hidden)
-                }
-                .frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 0,
-                    maxHeight: .infinity,
-                    alignment: .topLeading
-                )
-                .listStyle(GroupedListStyle())
-                //.edgesIgnoringSafeArea(.all)
-                //.navigationTitle("Restaurants Near Me" + location.description)
-                
-                if !self.cartViewModel.cart.isDummy && self.cartViewModel.cart.items.count > 0 {
-                    VStack {
-                        Spacer()
-                        CartButton()
-                    }
-                }
+                internalRestaurantsView
+                cartButton
             }
-            .navigationTitle(viewModel.location.description)
+            .navigationBarTitle("Restaurants", displayMode: .inline)
         }
         .eraseToAnyView()
+    }
+    
+    var internalRestaurantsView: some View {
+        List(viewModel.items, id: \.id) { restaurant in
+            NavigationLink(destination:
+                            RestaurantView(restaurant: restaurant)) {
+                RestaurantRow(location: viewModel.location, restaurant: restaurant)
+            }
+                            .listRowSeparator(.hidden)
+        }
+        .frame(
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .topLeading
+        )
+        .listStyle(GroupedListStyle())
+    }
+    
+    var cartButton: some View {
+        if !self.cartViewModel.cart.isDummy && self.cartViewModel.cart.items.count > 0 {
+            return AnyView(VStack {
+                Spacer()
+                CartButton()})
+        } else {
+            return AnyView(EmptyView())
+        }
     }
 }
 
 struct RestaurantRow: View {
+    var location: CLLocation
     let restaurant: Restaurant
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
@@ -58,25 +65,32 @@ struct RestaurantRow: View {
     
     var body: some View {
         VStack {
-            CachedAsyncImage(url: pizzaURL,
-                       content: { image in
-                image.resizable()
-                    .scaledToFill()
-                    .frame(width: .infinity, height: 150)
-                    .clipped()
-            },
-                       placeholder: {
-                ProgressView()
-            })
-                .cornerRadius(10)
-            HStack{
-                Text(restaurant.name)
-                //                Text(restaurant.name)
-                Text("\(restaurant.latitude), \(restaurant.longitude)")
-                Spacer()
-            }
+            restaurantImage
+            restaurantInfo
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+    }
+    
+    var restaurantImage: some View {
+        CachedAsyncImage(url: pizzaURL,
+                         content: { image in
+            image.resizable()
+                .scaledToFill()
+                .frame(width: .infinity, height: 150)
+                .clipped()
+        },
+                         placeholder: {
+            ProgressView()
+        })
+            .cornerRadius(10)
+    }
+    
+    var restaurantInfo: some View {
+        HStack{
+            Text(restaurant.name).fontWeight(.medium)
+            Spacer()
+            Text(String(format: "%.1f km", restaurant.distanceInKM(from: location))).fontWeight(.thin)
+        }
     }
 }
 
