@@ -10,6 +10,7 @@
 		EC12259D2787A23200D4AB49 /* OrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259C2787A23200D4AB49 /* OrderButton.swift */; };
 		EC12259F2787ACC000D4AB49 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259E2787ACC000D4AB49 /* AddItemButton.swift */; };
 		EC7291FC278B635000F417FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7291FB278B635000F417FA /* MainView.swift */; };
+		EC729200278B810500F417FA /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC7291FF278B810500F417FA /* CachedAsyncImage */; };
 		EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC82D9AA2788654B00BD0778 /* Decimal.swift */; };
 		EC8C113D278624B50043DD30 /* PizzaOrderingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */; };
 		EC8C1141278624B80043DD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C1140278624B80043DD30 /* Assets.xcassets */; };
@@ -114,6 +115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC99DEAC278AF9010052D926 /* CocoaLumberjack in Frameworks */,
+				EC729200278B810500F417FA /* CachedAsyncImage in Frameworks */,
 				EC8C116E27862D320043DD30 /* Alamofire in Frameworks */,
 				ECB03AE52786F48500674599 /* SwiftLocation in Frameworks */,
 				EC99DEA7278AF4E30052D926 /* CocoaLumberjackSwift in Frameworks */,
@@ -332,6 +334,7 @@
 				ECB03AE42786F48500674599 /* SwiftLocation */,
 				EC99DEA6278AF4E30052D926 /* CocoaLumberjackSwift */,
 				EC99DEAB278AF9010052D926 /* CocoaLumberjack */,
+				EC7291FF278B810500F417FA /* CachedAsyncImage */,
 			);
 			productName = PizzaOrdering;
 			productReference = EC8C1139278624B50043DD30 /* PizzaOrdering.app */;
@@ -409,6 +412,7 @@
 				EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				ECB03AE32786F48500674599 /* XCRemoteSwiftPackageReference "SwiftLocation" */,
 				EC99DEA5278AF4E20052D926 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				EC7291FE278B810500F417FA /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */,
 			);
 			productRefGroup = EC8C113A278624B50043DD30 /* Products */;
 			projectDirPath = "";
@@ -844,6 +848,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC7291FE278B810500F417FA /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/SwiftUI-CachedAsyncImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -871,6 +883,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC7291FF278B810500F417FA /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC7291FE278B810500F417FA /* XCRemoteSwiftPackageReference "SwiftUI-CachedAsyncImage" */;
+			productName = CachedAsyncImage;
+		};
 		EC8C116D27862D320043DD30 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */;

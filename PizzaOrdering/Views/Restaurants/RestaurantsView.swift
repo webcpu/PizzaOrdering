@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreLocation
+import CachedAsyncImage
 
 struct RestaurantsView: View {
     @EnvironmentObject var cartViewModel: CartViewModel
@@ -57,14 +58,12 @@ struct RestaurantRow: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: pizzaURL,
+            CachedAsyncImage(url: pizzaURL,
                        content: { image in
-                //                                GeometryReader { geo in
                 image.resizable()
                     .scaledToFill()
                     .frame(width: .infinity, height: 150)
                     .clipped()
-                //                              }
             },
                        placeholder: {
                 ProgressView()

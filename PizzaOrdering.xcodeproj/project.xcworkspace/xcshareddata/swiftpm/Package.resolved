@@ -36,6 +36,15 @@
           "revision": "f8ec8e97095eb3a5312370ad94b921768217625f",
           "version": "5.1.0"
         }
+      },
+      {
+        "package": "CachedAsyncImage",
+        "repositoryURL": "https://github.com/lorenzofiamingo/SwiftUI-CachedAsyncImage.git",
+        "state": {
+          "branch": null,
+          "revision": "eb489a699be1f6e6c1a19fecdd6bfdc556474fd6",
+          "version": "1.4.0"
+        }
       }
     ]
   },

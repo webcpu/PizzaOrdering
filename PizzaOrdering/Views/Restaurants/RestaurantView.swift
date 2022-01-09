@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreLocation
+import CachedAsyncImage
 
 struct RestaurantView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -100,7 +101,7 @@ struct FoodRow: View {
                 Text("SEK \(food.price.description)").font(.body)
             }
             Spacer()
-            AsyncImage(url: pizzaURL,
+            CachedAsyncImage(url: pizzaURL,
                        content: { image in
                 image.resizable()
                     .scaledToFill()

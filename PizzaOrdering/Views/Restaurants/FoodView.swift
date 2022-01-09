@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreLocation
+import CachedAsyncImage
 
 struct FoodView: View {
     var restaurant: Restaurant
@@ -90,7 +91,7 @@ struct FoodOptionRow: View {
                 Text("SEK \(food.price.description)").font(.body)
             }//.foregroundColor(Color.white)
             Spacer()
-            AsyncImage(url: pizzaURL,
+            CachedAsyncImage(url: pizzaURL,
                        content: { image in
                 //                                GeometryReader { geo in
                 image.resizable()
