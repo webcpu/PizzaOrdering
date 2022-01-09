@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 
 struct RestaurantsView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
@@ -20,7 +20,7 @@ struct RestaurantsView: View {
             ZStack {
                 List(viewModel.items, id: \.id) { restaurant in
                     NavigationLink(destination:
-                                    RestaurantView(restaurantId: restaurant.id)) {
+                                    RestaurantView(restaurant: restaurant)) {
                         RestaurantRow(restaurant: restaurant)
                     }
                                     .listRowSeparator(.hidden)
@@ -36,7 +36,7 @@ struct RestaurantsView: View {
                 //.edgesIgnoringSafeArea(.all)
                 //.navigationTitle("Restaurants Near Me" + location.description)
                 
-                if !self.appState.cart.isDummy && self.appState.cart.items.count > 0 {
+                if !self.cartModel.cart.isDummy && self.cartModel.cart.items.count > 0 {
                     VStack {
                         Spacer()
                         CartButton()

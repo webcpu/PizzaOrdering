@@ -13,7 +13,7 @@ enum OrderDetailError: Error {
 }
 
 struct OrderDetailView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
@@ -43,7 +43,7 @@ struct OrderDetailView: View {
     
     var restaurantView: some View {
         VStack {
-            NavigationLink(destination: RestaurantView(restaurantId: restaurant.id)) {
+            NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
                 ZStack {
                     Image("r1")
                         .resizable()

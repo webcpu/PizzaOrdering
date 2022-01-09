@@ -12,7 +12,7 @@ enum OrderError: Error {
 }
 
 struct CheckoutView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var result: Result<OrderSummary, Error>?
@@ -20,7 +20,7 @@ struct CheckoutView: View {
     
     func load() {
         Task {
-            if let orderSummary = await appState.createOrder() {
+            if let orderSummary = await cartModel.createOrder() {
                 result = .success(orderSummary)
             } else {
                 result = .failure(OrderError.UnknownError)
@@ -61,7 +61,9 @@ struct SummaryView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
             self.presentationMode.wrappedValue.dismiss()
-        }) {Image(systemName: "arrow.backward")})
+        }) {Image(systemName: "arrow.backward")}, trailing: Button("Done") {
+            self.presentationMode.wrappedValue.dismiss()
+        })
         .navigationBarTitle("Order Summary")
     }
 }

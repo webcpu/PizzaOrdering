@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OrderButton: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isPresented: Bool = false
     @Binding var isTapped: Bool
@@ -24,7 +24,7 @@ struct OrderButton: View {
             self.isTapped = true
         }) {
             HStack {
-                if appState.quantity > 0 {
+                if cartModel.quantity > 0 {
                     Image(systemName: "cart.fill").accentColor(.white)
                 } else {
                     Image(systemName: "cart").accentColor(.white)

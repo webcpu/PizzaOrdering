@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CartButton: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isPresentedCartView: Bool = false
 
     fileprivate func cartImage() -> some View {
-        if appState.quantity > 0 {
+        if cartModel.quantity > 0 {
             return Image(systemName: "cart.fill").accentColor(.white)
         } else {
             return Image(systemName: "cart").accentColor(.white)
@@ -29,7 +29,7 @@ struct CartButton: View {
             HStack {
                 cartImage()
                 Spacer()
-                Text("View cart (\(appState.quantity))").foregroundColor(.white)
+                Text("View cart (\(cartModel.quantity))").foregroundColor(.white)
                 Spacer()
             }
             .padding(.horizontal, 10)
@@ -42,10 +42,9 @@ struct CartButton: View {
         .padding(.horizontal,  20)
         .padding(.vertical,  5)
         .fullScreenCover(isPresented: $isPresentedCartView) {
-            if appState.restaurant != nil {
-                CartView(restaurantId: appState.restaurant!.id)
+            if !cartModel.restaurant.isDummy {
+                CartView()
             }
-//            SignInView(isPresented: $isPresentedSignIn)
         }
     }
 }

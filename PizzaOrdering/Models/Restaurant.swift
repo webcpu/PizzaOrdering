@@ -25,6 +25,14 @@ extension Restaurant {
     func distance(from location: CLLocation) -> CLLocationDistance {
         return abs(getLocation().distance(from: location))
     }
+    
+    var isDummy: Bool {
+        return self.id == Restaurant.dummyRestaurant.id
+    }
+    
+    static var dummyRestaurant: Restaurant {
+        return Restaurant(id: -1, name: "", address1: "", address2: "", latitude: 0, longitude: 0)
+    }
 }
 
 func ==(lhs: Restaurant, rhs: Restaurant) -> Bool {

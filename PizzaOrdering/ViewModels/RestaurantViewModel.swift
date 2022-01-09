@@ -11,19 +11,18 @@ import SwiftLocation
 import CoreLocation
 
 class RestaurantViewModel: ObservableObject {
-    @Published var restaurantId: Int
-    @Published var restaurant: Restaurant?
+    @Published var restaurant: Restaurant
     @Published var items: [Food] = []
     
     private var cancellable: AnyCancellable?
     
-    init(_ restaurantId: Int) {
-        self.restaurantId = restaurantId
+    init(_ restaurant: Restaurant) {
+        self.restaurant = restaurant
     }
     
     func update() async {
-        self.restaurant = await BackendAPI.getRestaurant(restaurantId)
-        self.items = await BackendAPI.getMenu(restaurantId, "Pizza", "rank")
+        //self.restaurant = restaurant //await BackendAPI.getRestaurant(restaurantId)
+        self.items = await BackendAPI.getMenu(restaurant.id, "Pizza", "rank")
     }
     
 //    func updateItems() {

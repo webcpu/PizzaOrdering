@@ -10,9 +10,8 @@ import CoreLocation
 import Combine
 
 struct CartView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var restaurantId: Int
     #if DEBUG
     @ObservedObject var iO = injectionObserver
     #endif
@@ -21,13 +20,8 @@ struct CartView: View {
     @State var isLinkActive = false
     @State var isEditMode: EditMode = .inactive
 
-    init(restaurantId: Int) {
-        self.restaurantId = restaurantId
-    }
-    
-    func backButton() -> some View {
+    var closeButton: some View {
         Button(action: {
-            print("person")
             self.presentationMode.wrappedValue.dismiss()
         }) {
             Image(systemName: "xmark.circle")
@@ -42,18 +36,17 @@ struct CartView: View {
         NavigationView {
             ZStack {
                 List {
-                    ForEach(0..<appState.cart.items.count, id: \.self) { index in
-                        let item = appState.cart.items[index]
-                        //                    if self.appState.restaurant != nil {
+                    Text(cartModel.restaurant.name)
+                    ForEach(0..<cartModel.cart.items.count, id: \.self) { index in
+                        let item = cartModel.cart.items[index]
                         LineItemRow(lineItem: item)
                             .frame(maxWidth: .infinity)
-                            //.listRowSeparator(.hidden)
                     }
                     .onDelete(perform: delete)
                     HStack {
                         Text("Subtotal").fontWeight(.semibold)
                         Spacer()
-                        Text("SEK \(appState.subtotal.description)").fontWeight(.semibold)
+                        Text("SEK \(cartModel.subtotal.description)").fontWeight(.semibold)
                     }
                 }
                 .listStyle(.grouped)
@@ -64,22 +57,24 @@ struct CartView: View {
                     NavigationLink(destination: CheckoutView(), isActive: $isLinkActive) {
                         OrderButton(isTapped: $isLinkActive)
                     }
-                    .disabled(appState.cart.items.isEmpty)
+                    .disabled(cartModel.cart.items.isEmpty)
                 }
             }
             .navigationBarTitle("Shopping Cart")
-            .navigationBarItems(leading: backButton())
+            .navigationBarItems(leading: closeButton)
             .task {
-                if appState.cart.items.isEmpty {
-                    self.presentationMode.wrappedValue.dismiss()
-                }
+                dump(cartModel.cart)
+                dump(cartModel.subtotal)
+//                if cartModel.cart.items.isEmpty {
+//                    self.presentationMode.wrappedValue.dismiss()
+//                }
             }
         }
     }
     //.navigationTitle("Restaurants Near Me" + location.description)
     //        .task {
-    //            //            if self.appState.cart == nil {
-    //            //               self.appState.cart = Cart(items: [], restuarantId: restaurantId)
+    //            //            if self.cartModel.cart == nil {
+    //            //               self.cartModel.cart = Cart(items: [], restuarantId: restaurantId)
     //            //            }
     //        }
     //       .edgesIgnoringSafeArea(.horizontal)
@@ -88,7 +83,7 @@ struct CartView: View {
     
     func delete(at offsets: IndexSet) {
         print("delete")
-        appState.removeItem(atOffsets: offsets)
+        cartModel.removeItem(atOffsets: offsets)
     }
 }
 
@@ -98,13 +93,13 @@ struct CartView: View {
 //            print("order")
 //            self.isPresented = true
 //            self.isTapped = true
-//            dump(appState.cart)
+//            dump(cartModel.cart)
 //            self.presentationMode.wrappedValue.dismiss()
 //        })
 //}
 
 fileprivate struct LineItemRow: View {
-    //@EnvironmentObject var appState: AppState
+    //@EnvironmentObject var cartModel: AppState
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
@@ -113,7 +108,7 @@ fileprivate struct LineItemRow: View {
     
     init(lineItem: LineItem) {
         self.lineItem = lineItem
-        //self.restaurant = appState.restaurant
+        //self.restaurant = cartModel.restaurant
     }
     
     var pizzaURL: URL? {

@@ -8,20 +8,21 @@
 import Foundation
 import Combine
 
-public class AppState: ObservableObject {
-    @Published var restaurant: Restaurant?
+public class CartModel: ObservableObject {
+    @Published var restaurant: Restaurant = Restaurant.dummyRestaurant
     @Published var cart: Cart = Cart.dummyCart
     @Published var subtotal: Decimal = 0
     @Published var quantity: Int = 0
     var bag = Set<AnyCancellable>()
 
     func connect() -> Self {
-        $cart
-            .compactMap({$0})
-            .sink(receiveValue: {c in
-                    print(c)
-            })
-            .store(in: &bag)
+        $cart.sink(receiveValue: {c in
+            print("sink")
+            dump(c)
+            self.subtotal = c.subtotal
+            self.quantity = c.quantity
+        })
+        .store(in: &bag)
         return self
     }
     
@@ -47,15 +48,11 @@ public class AppState: ObservableObject {
     
     func updateCart(_ items: [LineItem]) {
         cart.items = items.filter({$0.quantity > 0})
-        quantity = cart.quantity
-        subtotal = cart.items.map({item in Decimal(item.quantity) * item.price!}).reduce(0, +)
     }
     
     func clearCart() {
         DispatchQueue.main.async {
-            self.cart = Cart.dummyCart
-            self.quantity = 0
-            self.subtotal = 0
+            self.cart.items = []
         }
     }
     

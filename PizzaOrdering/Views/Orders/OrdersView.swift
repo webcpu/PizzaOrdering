@@ -14,7 +14,7 @@ enum OrdersError: Error {
 let mockOrderIds = [1234410, 1234411, 1234412]
 
 struct OrdersView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
@@ -45,7 +45,7 @@ struct OrdersView: View {
 struct _OrdersView: View {
     @State var orderIds: [Int]
     @State var order: Order = Order(orderID: 0, totalPrice: 0, orderedAt: Date.distantPast, estimatedDelivery: Date.distantPast, status: "", items: [], restaurantId: 0)
-    @State var restaurant: Restaurant = Restaurant(id: -1, name: "", address1: "", address2: "", latitude: 0, longitude: 0)
+    @State var restaurant: Restaurant = .dummyRestaurant
     
     init(_ ids: [Int]) {
         _orderIds = State(wrappedValue: ids)

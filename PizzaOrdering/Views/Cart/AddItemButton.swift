@@ -14,7 +14,7 @@ struct AddItemButton: View {
     var restaurant: Restaurant
     @State var quantity: Int = 0
     
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var cartModel: CartModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     init(restaurant: Restaurant, food: Food) {
@@ -47,8 +47,8 @@ struct AddItemButton: View {
     }
     
     fileprivate func addItem() {
-        dump(appState.cart.items)
-        appState.addItem(food: food, quantity: 1)
+        dump(cartModel.cart.items)
+        cartModel.addItem(food: food, quantity: 1)
     }
 
 }

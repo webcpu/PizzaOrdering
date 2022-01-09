@@ -35,7 +35,7 @@
 		ECB03AEE27874B0D00674599 /* MyFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AED27874B0D00674599 /* MyFont.swift */; };
 		ECB03AF02787563B00674599 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AEF2787563A00674599 /* FoodView.swift */; };
 		ECB03AF227875EEF00674599 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF127875EEE00674599 /* CartButton.swift */; };
-		ECB03AF42787713500674599 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF32787713500674599 /* AppState.swift */; };
+		ECB03AF42787713500674599 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF32787713500674599 /* CartModel.swift */; };
 		ECB03AF62787925E00674599 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF52787925E00674599 /* CartView.swift */; };
 		ECFBE6F12788DB1E00102D69 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE6F02788DB1E00102D69 /* CheckoutView.swift */; };
 		ECFBE6F327899F7D00102D69 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE6F227899F7D00102D69 /* View.swift */; };
@@ -93,7 +93,7 @@
 		ECB03AED27874B0D00674599 /* MyFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFont.swift; sourceTree = "<group>"; };
 		ECB03AEF2787563A00674599 /* FoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		ECB03AF127875EEE00674599 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
-		ECB03AF32787713500674599 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		ECB03AF32787713500674599 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 		ECB03AF52787925E00674599 /* CartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		ECFBE6F02788DB1E00102D69 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		ECFBE6F227899F7D00102D69 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 				ECB03AE727871A7A00674599 /* RestaurantsViewModel.swift */,
 				ECB03AEB2787359E00674599 /* RestaurantViewModel.swift */,
 				ECFBE6FC2789A90700102D69 /* OrdersViewModel.swift */,
-				ECB03AF32787713500674599 /* AppState.swift */,
+				ECB03AF32787713500674599 /* CartModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -458,7 +458,7 @@
 				ECB03AD327865B1700674599 /* Order.swift in Sources */,
 				ECB03AE827871A7A00674599 /* RestaurantsViewModel.swift in Sources */,
 				ECB03AD127864D0D00674599 /* Menu.swift in Sources */,
-				ECB03AF42787713500674599 /* AppState.swift in Sources */,
+				ECB03AF42787713500674599 /* CartModel.swift in Sources */,
 				ECB03AEA2787354D00674599 /* RestaurantView.swift in Sources */,
 				ECFBE7022789F7AF00102D69 /* Date.swift in Sources */,
 				EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */,

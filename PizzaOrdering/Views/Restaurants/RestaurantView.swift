@@ -10,25 +10,25 @@ import CoreLocation
 
 struct RestaurantView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var appState: AppState
-    @State var restaurantId: Int
+    @EnvironmentObject var cartModel: CartModel
+    @State var restaurant: Restaurant
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
     @StateObject var viewModel: RestaurantViewModel
     
-    init(restaurantId: Int) {
-        self._restaurantId = State(wrappedValue: restaurantId)
-        self._viewModel = StateObject(wrappedValue: RestaurantViewModel(restaurantId))
+    init(restaurant: Restaurant) {
+        self._restaurant = State(wrappedValue: restaurant)
+        self._viewModel = StateObject(wrappedValue: RestaurantViewModel(restaurant))
     }
     
     var body: some View {
         ZStack {
             List {
                 ForEach(viewModel.items, id: \.id) { item in
-                    if viewModel.restaurant != nil {
-                        NavigationLink(destination: FoodView(restaurant: viewModel.restaurant!, food: item)) {
-                            FoodRow(restaurant: viewModel.restaurant!, food: item)
+                    if !viewModel.restaurant.isDummy {
+                        NavigationLink(destination: FoodView(restaurant: viewModel.restaurant, food: item)) {
+                            FoodRow(restaurant: viewModel.restaurant, food: item)
                         }
                         .frame(maxWidth: .infinity)
                 //        .listRowSeparator(.hidden)
@@ -57,14 +57,14 @@ struct RestaurantView: View {
         //        .background(.clear)
         //.navigationTitle("Restaurants Near Me" + location.description)
         //            .navigationTitle(viewModel.location.description)
-        .navigationTitle(viewModel.restaurant?.name ?? "")
+        .navigationTitle(viewModel.restaurant.name)
         .task {
-            self.appState.restaurant = viewModel.restaurant
-            if self.appState.cart.isDummy {
-                self.appState.cart = Cart(items: [], restaurantId: restaurantId)
+            self.cartModel.restaurant = viewModel.restaurant
+            if self.cartModel.cart.isDummy {
+                self.cartModel.cart = Cart(items: [], restaurantId: restaurant.id)
             }
             await viewModel.update()
-            self.appState.restaurant = viewModel.restaurant
+            self.cartModel.restaurant = viewModel.restaurant
         }
         .edgesIgnoringSafeArea(.horizontal)
         .colorMultiply(.white)
