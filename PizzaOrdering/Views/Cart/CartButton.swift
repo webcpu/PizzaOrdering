@@ -47,6 +47,7 @@ struct CartButton: View {
                 CartView()
             }
         }
+        .opacity(cartViewModel.quantity > 0 ? 1 : 0)
     }
 }
 

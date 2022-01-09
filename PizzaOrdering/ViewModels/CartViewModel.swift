@@ -19,7 +19,6 @@ public class CartViewModel: ObservableObject {
     func connect() -> Self {
         $cart.sink(receiveValue: {c in
             DDLogError(c)
-            //dump(c)
             self.subtotal = c.subtotal
             self.quantity = c.quantity
         })

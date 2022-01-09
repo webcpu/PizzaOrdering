@@ -70,9 +70,9 @@ struct CartView: View {
             .task {
                 dump(cartViewModel.cart)
                 dump(cartViewModel.subtotal)
-//                if cartViewModel.cart.items.isEmpty {
-//                    self.presentationMode.wrappedValue.dismiss()
-//                }
+                if cartViewModel.cart.items.isEmpty {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
         }
     }
