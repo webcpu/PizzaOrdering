@@ -13,7 +13,7 @@ enum OrderDetailError: Error {
 }
 
 struct OrderDetailView: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif

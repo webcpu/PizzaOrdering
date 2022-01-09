@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import CocoaLumberjackSwift
 
 struct CartButton: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isPresentedCartView: Bool = false
 
     fileprivate func cartImage() -> some View {
-        if cartModel.quantity > 0 {
+        if cartViewModel.quantity > 0 {
             return Image(systemName: "cart.fill").accentColor(.white)
         } else {
             return Image(systemName: "cart").accentColor(.white)
@@ -22,14 +23,14 @@ struct CartButton: View {
     
     var body: some View {
         Button(action: {
-            print("view cart")
+            DDLogInfo("view cart")
             //self.presentationMode.wrappedValue.dismiss()
             self.isPresentedCartView = true
         }) {
             HStack {
                 cartImage()
                 Spacer()
-                Text("View cart (\(cartModel.quantity))").foregroundColor(.white)
+                Text("View cart (\(cartViewModel.quantity))").foregroundColor(.white)
                 Spacer()
             }
             .padding(.horizontal, 10)
@@ -42,7 +43,7 @@ struct CartButton: View {
         .padding(.horizontal,  20)
         .padding(.vertical,  5)
         .fullScreenCover(isPresented: $isPresentedCartView) {
-            if !cartModel.restaurant.isDummy {
+            if !cartViewModel.restaurant.isDummy {
                 CartView()
             }
         }

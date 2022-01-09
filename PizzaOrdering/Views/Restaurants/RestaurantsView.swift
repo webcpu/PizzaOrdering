@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 
 struct RestaurantsView: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
@@ -36,7 +36,7 @@ struct RestaurantsView: View {
                 //.edgesIgnoringSafeArea(.all)
                 //.navigationTitle("Restaurants Near Me" + location.description)
                 
-                if !self.cartModel.cart.isDummy && self.cartModel.cart.items.count > 0 {
+                if !self.cartViewModel.cart.isDummy && self.cartViewModel.cart.items.count > 0 {
                     VStack {
                         Spacer()
                         CartButton()

@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import SwiftLocation
 import CoreLocation
+import CocoaLumberjackSwift
 
 class RestaurantsViewModel: ObservableObject {
     @Published var items = [Restaurant]()
@@ -39,7 +40,7 @@ class RestaurantsViewModel: ObservableObject {
             .sink(receiveValue:
                     {(arg0: (CLLocation, [Restaurant])) -> Void in
                 let (location, items) = arg0
-                print("receiveValue: \(arg0)")
+                DDLogInfo("receiveValue: \(arg0)")
                 DispatchQueue.main.async {
                     self.items = items.sorted(by: self.compareByDistance)
                     self.location = location

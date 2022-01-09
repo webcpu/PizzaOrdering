@@ -6,19 +6,22 @@
 //
 
 import SwiftUI
-
+import CocoaLumberjackSwift
 
 @main
 struct PizzaOrderingApp: App {
     init() {
         LocationService.default.getCurrentLocation()
         
+        dynamicLogLevel = DDLogLevel.info
+        
+        DDLog.add(DDOSLogger.sharedInstance)
     //    UITableView.appearance().backgroundColor = .clear
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(CartModel().connect())
+            ContentView().environmentObject(CartViewModel().connect())
         }
     }
 }

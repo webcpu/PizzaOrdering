@@ -12,7 +12,7 @@ enum OrderError: Error {
 }
 
 struct CheckoutView: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State private var result: Result<OrderSummary, Error>?
@@ -20,7 +20,7 @@ struct CheckoutView: View {
     
     func load() {
         Task {
-            if let orderSummary = await cartModel.createOrder() {
+            if let orderSummary = await cartViewModel.createOrder() {
                 result = .success(orderSummary)
             } else {
                 result = .failure(OrderError.UnknownError)

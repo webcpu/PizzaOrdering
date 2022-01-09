@@ -18,6 +18,12 @@ struct Food: Codable, Equatable {
     let rank: Int?
 }
 
+extension Food {
+    static var dummyFood: Food {
+        return Food(id: 0, category: "", name: "", topping: [], price: 0, rank: 0)
+    }
+}
+
 func ==(lhs: Food, rhs: Food) -> Bool {
     return lhs.id == lhs.id &&
     lhs.category == rhs.category &&

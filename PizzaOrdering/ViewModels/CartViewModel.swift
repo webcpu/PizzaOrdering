@@ -1,5 +1,5 @@
 //
-//  AppState.swift
+//  CartViewModel.swift
 //  PizzaOrdering
 //
 //  Created by liang on 2022-01-06.
@@ -7,8 +7,9 @@
 
 import Foundation
 import Combine
+import CocoaLumberjackSwift
 
-public class CartModel: ObservableObject {
+public class CartViewModel: ObservableObject {
     @Published var restaurant: Restaurant = Restaurant.dummyRestaurant
     @Published var cart: Cart = Cart.dummyCart
     @Published var subtotal: Decimal = 0
@@ -17,8 +18,8 @@ public class CartModel: ObservableObject {
 
     func connect() -> Self {
         $cart.sink(receiveValue: {c in
-            print("sink")
-            dump(c)
+            DDLogError(c)
+            //dump(c)
             self.subtotal = c.subtotal
             self.quantity = c.quantity
         })

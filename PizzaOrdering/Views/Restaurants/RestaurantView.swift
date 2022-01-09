@@ -10,7 +10,7 @@ import CoreLocation
 
 struct RestaurantView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
     @State var restaurant: Restaurant
 #if DEBUG
     @ObservedObject var iO = injectionObserver
@@ -59,12 +59,12 @@ struct RestaurantView: View {
         //            .navigationTitle(viewModel.location.description)
         .navigationTitle(viewModel.restaurant.name)
         .task {
-            self.cartModel.restaurant = viewModel.restaurant
-            if self.cartModel.cart.isDummy {
-                self.cartModel.cart = Cart(items: [], restaurantId: restaurant.id)
+            self.cartViewModel.restaurant = viewModel.restaurant
+            if self.cartViewModel.cart.isDummy {
+                self.cartViewModel.cart = Cart(items: [], restaurantId: restaurant.id)
             }
             await viewModel.update()
-            self.cartModel.restaurant = viewModel.restaurant
+            self.cartViewModel.restaurant = viewModel.restaurant
         }
         .edgesIgnoringSafeArea(.horizontal)
         .colorMultiply(.white)

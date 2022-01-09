@@ -8,9 +8,14 @@
 import SwiftUI
 import CoreLocation
 import Combine
+import CocoaLumberjackSwift
+
+enum FoodError: Error {
+    case UnknownError
+}
 
 struct CartView: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     #if DEBUG
     @ObservedObject var iO = injectionObserver
@@ -28,7 +33,7 @@ struct CartView: View {
         }
     }
     
-    var cartButton = Button(action: {print("cart")}) {
+    var cartButton = Button(action: {DDLogInfo("cart")}) {
         Image(systemName: "cart")
     }
     
@@ -36,9 +41,9 @@ struct CartView: View {
         NavigationView {
             ZStack {
                 List {
-                    Text(cartModel.restaurant.name)
-                    ForEach(0..<cartModel.cart.items.count, id: \.self) { index in
-                        let item = cartModel.cart.items[index]
+                    Text(cartViewModel.restaurant.name)
+                    ForEach(0..<cartViewModel.cart.items.count, id: \.self) { index in
+                        let item = cartViewModel.cart.items[index]
                         LineItemRow(lineItem: item)
                             .frame(maxWidth: .infinity)
                     }
@@ -46,7 +51,7 @@ struct CartView: View {
                     HStack {
                         Text("Subtotal").fontWeight(.semibold)
                         Spacer()
-                        Text("SEK \(cartModel.subtotal.description)").fontWeight(.semibold)
+                        Text("SEK \(cartViewModel.subtotal.description)").fontWeight(.semibold)
                     }
                 }
                 .listStyle(.grouped)
@@ -57,15 +62,15 @@ struct CartView: View {
                     NavigationLink(destination: CheckoutView(), isActive: $isLinkActive) {
                         OrderButton(isTapped: $isLinkActive)
                     }
-                    .disabled(cartModel.cart.items.isEmpty)
+                    .disabled(cartViewModel.cart.items.isEmpty)
                 }
             }
             .navigationBarTitle("Shopping Cart")
             .navigationBarItems(leading: closeButton)
             .task {
-                dump(cartModel.cart)
-                dump(cartModel.subtotal)
-//                if cartModel.cart.items.isEmpty {
+                dump(cartViewModel.cart)
+                dump(cartViewModel.subtotal)
+//                if cartViewModel.cart.items.isEmpty {
 //                    self.presentationMode.wrappedValue.dismiss()
 //                }
             }
@@ -73,8 +78,8 @@ struct CartView: View {
     }
     //.navigationTitle("Restaurants Near Me" + location.description)
     //        .task {
-    //            //            if self.cartModel.cart == nil {
-    //            //               self.cartModel.cart = Cart(items: [], restuarantId: restaurantId)
+    //            //            if self.cartViewModel.cart == nil {
+    //            //               self.cartViewModel.cart = Cart(items: [], restuarantId: restaurantId)
     //            //            }
     //        }
     //       .edgesIgnoringSafeArea(.horizontal)
@@ -82,33 +87,22 @@ struct CartView: View {
     //.eraseToAnyView()
     
     func delete(at offsets: IndexSet) {
-        print("delete")
-        cartModel.removeItem(atOffsets: offsets)
+        DDLogInfo("delete")
+        cartViewModel.removeItem(atOffsets: offsets)
     }
 }
 
-//fileprivate struct BackButton: View {
-//    var body: some View {
-//        Button(action: {
-//            print("order")
-//            self.isPresented = true
-//            self.isTapped = true
-//            dump(cartModel.cart)
-//            self.presentationMode.wrappedValue.dismiss()
-//        })
-//}
-
 fileprivate struct LineItemRow: View {
-    //@EnvironmentObject var cartModel: AppState
+    @EnvironmentObject var cartViewModel: CartViewModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
     let lineItem: LineItem
-    @State var restaurant: Restaurant?
+    @State private var result: Result<Food, Error>?
     
     init(lineItem: LineItem) {
         self.lineItem = lineItem
-        //self.restaurant = cartModel.restaurant
+//        self.restaurant = self.cartViewModel.restaurant
     }
     
     var pizzaURL: URL? {
@@ -116,16 +110,51 @@ fileprivate struct LineItemRow: View {
         return URL(string: pizzaURLString) }
     
     var body: some View {
+        switch result {
+        case .success(let food):
+            return AnyView(InternalLineItemRow(lineItem, food))
+        case .failure(let eror):
+            return AnyView(InternalLineItemRow(lineItem, Food.dummyFood))
+        case nil:
+            return AnyView(ProgressView().onAppear(perform: load))
+        }
+    }
+    
+    func load() {
+        Task {
+            let items = await BackendAPI.getMenu(cartViewModel.restaurant.id, "Pizza", "rank")
+            if let food = items.filter({$0.id == lineItem.menuItemId}).first {
+                result = .success(food)
+            } else {
+                result = .failure(FoodError.UnknownError)
+            }
+        }
+    }
+}
+
+struct InternalLineItemRow: View {
+    var lineItem: LineItem
+    var food: Food
+    
+    init(_ lineItem: LineItem, _ food: Food) {
+        self.lineItem = lineItem
+        self.food = food
+    }
+    
+    var body: some View {
         HStack {
-            Text(String(lineItem.quantity))
-            //Text(String(lineItem.price ?? 0))
-            Spacer()
-            Text("SEK \(lineItem.sum.description)").font(.body)
+            Text(String(lineItem.quantity)).padding(.trailing, 10)
+            HStack {
+                Text(food.name)
+                Spacer()
+                Text("SEK \(lineItem.sum.description)").font(.body)
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .eraseToAnyView()
     }
 }
+
 
 //struct CartView_Previews: PreviewProvider {
 //    static var previews: some View {

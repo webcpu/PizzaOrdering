@@ -20,6 +20,9 @@
 		EC8C1168278628530043DD30 /* BackendAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C1167278628530043DD30 /* BackendAPI.swift */; };
 		EC8C116B278629590043DD30 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C116A278629590043DD30 /* Restaurant.swift */; };
 		EC8C116E27862D320043DD30 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EC8C116D27862D320043DD30 /* Alamofire */; };
+		EC99DEA7278AF4E30052D926 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC99DEA6278AF4E30052D926 /* CocoaLumberjackSwift */; };
+		EC99DEA9278AF8750052D926 /* LogFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC99DEA8278AF8750052D926 /* LogFormater.swift */; };
+		EC99DEAC278AF9010052D926 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = EC99DEAB278AF9010052D926 /* CocoaLumberjack */; };
 		ECB03AD127864D0D00674599 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD027864D0D00674599 /* Menu.swift */; };
 		ECB03AD327865B1700674599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD227865B1600674599 /* Order.swift */; };
 		ECB03AD6278666B200674599 /* Encodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD5278666B200674599 /* Encodeable.swift */; };
@@ -35,7 +38,7 @@
 		ECB03AEE27874B0D00674599 /* MyFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AED27874B0D00674599 /* MyFont.swift */; };
 		ECB03AF02787563B00674599 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AEF2787563A00674599 /* FoodView.swift */; };
 		ECB03AF227875EEF00674599 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF127875EEE00674599 /* CartButton.swift */; };
-		ECB03AF42787713500674599 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF32787713500674599 /* CartModel.swift */; };
+		ECB03AF42787713500674599 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF32787713500674599 /* CartViewModel.swift */; };
 		ECB03AF62787925E00674599 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AF52787925E00674599 /* CartView.swift */; };
 		ECFBE6F12788DB1E00102D69 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE6F02788DB1E00102D69 /* CheckoutView.swift */; };
 		ECFBE6F327899F7D00102D69 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFBE6F227899F7D00102D69 /* View.swift */; };
@@ -79,6 +82,7 @@
 		EC8C1159278624B80043DD30 /* PizzaOrderingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOrderingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EC8C1167278628530043DD30 /* BackendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendAPI.swift; sourceTree = "<group>"; };
 		EC8C116A278629590043DD30 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		EC99DEA8278AF8750052D926 /* LogFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormater.swift; sourceTree = "<group>"; };
 		ECB03AD027864D0D00674599 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		ECB03AD227865B1600674599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		ECB03AD5278666B200674599 /* Encodeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodeable.swift; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		ECB03AED27874B0D00674599 /* MyFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFont.swift; sourceTree = "<group>"; };
 		ECB03AEF2787563A00674599 /* FoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		ECB03AF127875EEE00674599 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
-		ECB03AF32787713500674599 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		ECB03AF32787713500674599 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		ECB03AF52787925E00674599 /* CartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		ECFBE6F02788DB1E00102D69 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		ECFBE6F227899F7D00102D69 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -109,8 +113,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC99DEAC278AF9010052D926 /* CocoaLumberjack in Frameworks */,
 				EC8C116E27862D320043DD30 /* Alamofire in Frameworks */,
 				ECB03AE52786F48500674599 /* SwiftLocation in Frameworks */,
+				EC99DEA7278AF4E30052D926 /* CocoaLumberjackSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +144,7 @@
 				EC8C114C278624B80043DD30 /* PizzaOrderingTests */,
 				EC8C1156278624B80043DD30 /* PizzaOrderingUITests */,
 				EC8C113A278624B50043DD30 /* Products */,
+				EC99DEAA278AF9010052D926 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,6 +221,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		EC99DEAA278AF9010052D926 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ECB03AD42786669000674599 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +259,7 @@
 				ECB03AE727871A7A00674599 /* RestaurantsViewModel.swift */,
 				ECB03AEB2787359E00674599 /* RestaurantViewModel.swift */,
 				ECFBE6FC2789A90700102D69 /* OrdersViewModel.swift */,
-				ECB03AF32787713500674599 /* CartModel.swift */,
+				ECB03AF32787713500674599 /* CartViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -291,6 +305,7 @@
 		ECFBE7002789F77F00102D69 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EC99DEA8278AF8750052D926 /* LogFormater.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -315,6 +330,8 @@
 			packageProductDependencies = (
 				EC8C116D27862D320043DD30 /* Alamofire */,
 				ECB03AE42786F48500674599 /* SwiftLocation */,
+				EC99DEA6278AF4E30052D926 /* CocoaLumberjackSwift */,
+				EC99DEAB278AF9010052D926 /* CocoaLumberjack */,
 			);
 			productName = PizzaOrdering;
 			productReference = EC8C1139278624B50043DD30 /* PizzaOrdering.app */;
@@ -391,6 +408,7 @@
 			packageReferences = (
 				EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				ECB03AE32786F48500674599 /* XCRemoteSwiftPackageReference "SwiftLocation" */,
+				EC99DEA5278AF4E20052D926 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 			);
 			productRefGroup = EC8C113A278624B50043DD30 /* Products */;
 			projectDirPath = "";
@@ -455,10 +473,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC99DEA9278AF8750052D926 /* LogFormater.swift in Sources */,
 				ECB03AD327865B1700674599 /* Order.swift in Sources */,
 				ECB03AE827871A7A00674599 /* RestaurantsViewModel.swift in Sources */,
 				ECB03AD127864D0D00674599 /* Menu.swift in Sources */,
-				ECB03AF42787713500674599 /* CartModel.swift in Sources */,
+				ECB03AF42787713500674599 /* CartViewModel.swift in Sources */,
 				ECB03AEA2787354D00674599 /* RestaurantView.swift in Sources */,
 				ECFBE7022789F7AF00102D69 /* Date.swift in Sources */,
 				EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */,
@@ -833,6 +852,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EC99DEA5278AF4E20052D926 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		ECB03AE32786F48500674599 /* XCRemoteSwiftPackageReference "SwiftLocation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/malcommac/SwiftLocation.git";
@@ -848,6 +875,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC8C116C27862D320043DD30 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		EC99DEA6278AF4E30052D926 /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC99DEA5278AF4E20052D926 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		EC99DEAB278AF9010052D926 /* CocoaLumberjack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC99DEA5278AF4E20052D926 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjack;
 		};
 		ECB03AE42786F48500674599 /* SwiftLocation */ = {
 			isa = XCSwiftPackageProductDependency;

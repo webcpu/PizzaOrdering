@@ -8,13 +8,14 @@
 import Foundation
 import SwiftUI
 import Combine
+import CocoaLumberjackSwift
 
 struct AddItemButton: View {
     var food: Food
     var restaurant: Restaurant
     @State var quantity: Int = 0
     
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     init(restaurant: Restaurant, food: Food) {
@@ -24,7 +25,7 @@ struct AddItemButton: View {
         
     var body: some View {
         Button(action: {
-            print("add")
+            DDLogInfo("add")
             addItem()
             self.presentationMode.wrappedValue.dismiss()
         }) {
@@ -47,8 +48,8 @@ struct AddItemButton: View {
     }
     
     fileprivate func addItem() {
-        dump(cartModel.cart.items)
-        cartModel.addItem(food: food, quantity: 1)
+        dump(cartViewModel.cart.items)
+        cartViewModel.addItem(food: food, quantity: 1)
     }
 
 }

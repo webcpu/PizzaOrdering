@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import CocoaLumberjackSwift
 
 struct BackendAPI {
     static let baseURL = "https://private-anon-2665225972-pizzaapp.apiary-mock.com/"
@@ -105,7 +106,7 @@ struct BackendAPI {
                 .responseDecodable(of: Order.self) {
                     (response: DataResponse<Order, AFError>) in
                     let value: Order? = response.value
-                    print(value!)
+                    DDLogInfo(value!)
                     continuation.resume(returning: value)
                 }
         }

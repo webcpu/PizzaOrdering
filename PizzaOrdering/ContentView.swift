@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
@@ -21,7 +21,7 @@ struct ContentView: View {
 //            .onAppear {
 //                Task {
 //                    let rs = await BackendAPI.getRestaurants()
-//                    print(rs)
+//                    DDLogInfo(rs)
 //                }
 //            }
             .eraseToAnyView()

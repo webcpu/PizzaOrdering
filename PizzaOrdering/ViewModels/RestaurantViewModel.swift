@@ -38,7 +38,7 @@ class RestaurantViewModel: ObservableObject {
 //            })
 //            .sink(receiveValue:
 //                    {(items: [Food]) -> Void in
-//                print("receiveValue: \(items)")
+//                DDLogInfo("receiveValue: \(items)")
 //                DispatchQueue.main.async {
 //                    self.items = items //items.sorted(by: self.compareByDistance)
 //                }

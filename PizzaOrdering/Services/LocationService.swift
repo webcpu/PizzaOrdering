@@ -10,6 +10,7 @@ import CoreLocation
 import SwiftLocation
 import Alamofire
 import Combine
+import CocoaLumberjackSwift
 
 class LocationService {
     static let `default` = LocationService()
@@ -42,10 +43,10 @@ class LocationService {
     func didUpdate(_ result: Result<CLLocation, LocationError>) {
         switch result {
         case .success(let newData):
-            print("New location: \(newData)")
+            DDLogInfo("New location: \(newData)")
             self.publisher.send(newData)
         case .failure(let error):
-            print("An error has occurred: \(error.localizedDescription)")
+            DDLogInfo("An error has occurred: \(error.localizedDescription)")
         }
     }
 }

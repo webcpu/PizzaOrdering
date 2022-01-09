@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import CocoaLumberjackSwift
 
 struct OrderButton: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isPresented: Bool = false
     @Binding var isTapped: Bool
@@ -19,12 +20,12 @@ struct OrderButton: View {
 
     var body: some View {
         Button(action: {
-            print("order")
+            DDLogInfo("order")
             self.isPresented = true
             self.isTapped = true
         }) {
             HStack {
-                if cartModel.quantity > 0 {
+                if cartViewModel.quantity > 0 {
                     Image(systemName: "cart.fill").accentColor(.white)
                 } else {
                     Image(systemName: "cart").accentColor(.white)

@@ -14,7 +14,7 @@ enum OrdersError: Error {
 let mockOrderIds = [1234410, 1234411, 1234412]
 
 struct OrdersView: View {
-    @EnvironmentObject var cartModel: CartModel
+    @EnvironmentObject var cartViewModel: CartViewModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
