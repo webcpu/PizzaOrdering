@@ -32,7 +32,7 @@ struct OrdersView: View {
     var body: some View {
         switch result {
         case .success(let items):
-            return AnyView(_OrdersView(items).eraseToAnyView())
+            return AnyView(InternalOrdersView(items).eraseToAnyView())
         case .failure(let error):
             return AnyView(Text("Unknown Error"))
         case nil:
@@ -42,7 +42,7 @@ struct OrdersView: View {
     }
 }
 
-struct _OrdersView: View {
+struct InternalOrdersView: View {
     @State var orderIds: [Int]
     @State var order: Order = Order(orderID: 0, totalPrice: 0, orderedAt: Date.distantPast, estimatedDelivery: Date.distantPast, status: "", items: [], restaurantId: 0)
     @State var restaurant: Restaurant = .dummyRestaurant

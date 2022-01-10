@@ -29,7 +29,7 @@ struct FoodView: View {
                 Section(food.category) {
                     Text(food.name).font(.title).fontWeight(.semibold)
                 }
-                if food.topping != nil && food.topping!.count > 0 {
+                if food.topping != nil && !food.topping!.isEmpty {
                     Section("Topping") {
                         ForEach(food.topping ?? [], id: \.self) { item in
                             Text(item)

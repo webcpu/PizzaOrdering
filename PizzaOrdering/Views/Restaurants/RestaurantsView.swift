@@ -45,7 +45,7 @@ struct RestaurantsView: View {
     }
 
     var cartButton: some View {
-        if !self.cartViewModel.cart.isDummy && self.cartViewModel.cart.items.count > 0 {
+        if !self.cartViewModel.cart.isDummy && !self.cartViewModel.cart.items.isEmpty {
             return AnyView(VStack {
                 Spacer()
                 CartButton()})

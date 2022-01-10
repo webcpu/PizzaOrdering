@@ -154,7 +154,7 @@ struct OrderDetailRow: View {
     }
 }
 
-struct _OrderDetailView: View {
+struct InternalOrderDetailView: View {
     @State var fields: KeyValuePairs<String, String>
 
     init(_ summary: OrderSummary) {
@@ -179,7 +179,7 @@ struct _OrderDetailView: View {
     }
 }
 
-extension _OrderDetailView {
+extension InternalOrderDetailView {
     static func getSummaryItems(_ orderSummary: OrderSummary) -> KeyValuePairs<String, String> {
         let items: KeyValuePairs<String, String> = [
             "Order ID": String(orderSummary.orderID),
