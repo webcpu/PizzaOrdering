@@ -38,6 +38,11 @@
                BlueprintName = "PizzaOrderingTests"
                ReferencedContainer = "container:PizzaOrdering.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "LocationServiceTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -48,6 +53,11 @@
                BlueprintName = "PizzaOrderingUITests"
                ReferencedContainer = "container:PizzaOrdering.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "PizzaOrderingUITestsLaunchTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
