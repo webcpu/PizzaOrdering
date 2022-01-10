@@ -12,13 +12,13 @@ import CocoaLumberjackSwift
 struct PizzaOrderingApp: App {
     init() {
         LocationService.default.getCurrentLocation()
-        
+
         dynamicLogLevel = DDLogLevel.info
-        
+
         DDLog.add(DDOSLogger.sharedInstance)
     //    UITableView.appearance().backgroundColor = .clear
     }
-    
+
     var body: some Scene {
         WindowGroup {
             MainView().environmentObject(CartViewModel().connect())

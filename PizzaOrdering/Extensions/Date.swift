@@ -18,7 +18,7 @@ extension Date {
         let date = dateFormatter.date(from: isoDateString)
         return date
     }
-    
+
     var shortDateString: String {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
@@ -26,7 +26,7 @@ extension Date {
         formatter.timeZone = TimeZone.current
         return formatter.string(from: self)
     }
-    
+
     var longDateString: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"

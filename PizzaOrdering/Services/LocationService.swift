@@ -14,7 +14,7 @@ import CocoaLumberjackSwift
 
 class LocationService {
     static let `default` = LocationService()
-    
+
     var options: GPSLocationOptions {
         let options = GPSLocationOptions()
         options.subscription = .continous // continous updated until you stop it
@@ -25,21 +25,21 @@ class LocationService {
         options.timeout = .delayed(5) // 5 seconds of timeout after auth granted
         return options
     }
-    
+
     var publisher: PassthroughSubject<CLLocation, Never>
-    
+
     init() {
         self.publisher = PassthroughSubject<CLLocation, Never>()
         if let location = SwiftLocation.lastKnownGPSLocation {
             self.publisher.send(location)
         }
     }
-    
+
     func getCurrentLocation() { //-> Result<CLLocation, LocationError>{
         SwiftLocation.gpsLocationWith(options)
             .then(didUpdate)
     }
-    
+
     func didUpdate(_ result: Result<CLLocation, LocationError>) {
         switch result {
         case .success(let newData):

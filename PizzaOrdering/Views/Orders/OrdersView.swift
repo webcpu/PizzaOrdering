@@ -19,16 +19,16 @@ struct OrdersView: View {
     @ObservedObject var iO = injectionObserver
 #endif
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     @State private var result: Result<[Int], Error>?
     @State private var orderIds: [Int] = []
-    
+
     func load() {
         Task {
             self.result = .success(mockOrderIds)
         }
     }
-        
+
     var body: some View {
         switch result {
         case .success(let items):
@@ -46,11 +46,11 @@ struct _OrdersView: View {
     @State var orderIds: [Int]
     @State var order: Order = Order(orderID: 0, totalPrice: 0, orderedAt: Date.distantPast, estimatedDelivery: Date.distantPast, status: "", items: [], restaurantId: 0)
     @State var restaurant: Restaurant = .dummyRestaurant
-    
+
     init(_ ids: [Int]) {
         _orderIds = State(wrappedValue: ids)
     }
-    
+
     var body: some View {
         NavigationView {
 //            ZStack {
@@ -61,7 +61,7 @@ struct _OrdersView: View {
                         Section(header:
                                     Text("Current Orders").font(.title3).fontWeight(.medium)
                         ) {
-                            ForEach (0..<self.orderIds.count, id:\.self) { index in
+                            ForEach(0..<self.orderIds.count, id: \.self) { index in
                                 NavigationLink(destination: OrderDetailView($order, $restaurant)) {
                                     OrderRow(self.orderIds[index], $order, $restaurant)
                                 }
@@ -74,14 +74,14 @@ struct _OrdersView: View {
                 }
                 .navigationBarTitle("Your Orders", displayMode: .inline)
  //           }
-            
+
             //.navigationBarTitle("Orders")
  //                   .ignoresSafeArea(.all)
 
         }
         .navigationViewStyle(.stack)
         //.ignoresSafeArea(.all)
-        
+
         .onAppear(perform: {
             // UITableView.appearance().backgroundColor = .systemBackground
         })
@@ -93,13 +93,13 @@ struct OrderRow: View {
     @Binding var order: Order
     @Binding var restaurant: Restaurant
     @State private var result: Result<Order, Error>?
-    
+
     init(_ id: Int, _ order: Binding<Order>, _ restaurant: Binding<Restaurant>) {
         _orderId = State(wrappedValue: id)
         self._order = order
         self._restaurant = restaurant
     }
-    
+
     var body: some View {
         switch result {
         case .success(let order):
@@ -114,7 +114,7 @@ struct OrderRow: View {
         //            order = await BackendAPI.getOrder(orderId)
         //        }
     }
-    
+
     func load() {
         Task {
             if let order = await BackendAPI.getOrder(orderId) {
@@ -127,7 +127,7 @@ struct OrderRow: View {
             }
         }
     }
-    
+
     var internalOrderRow: some View {
         HStack {
             Image("r1").resizable().frame(width: 60, height: 45)
@@ -145,7 +145,7 @@ struct OrderRow: View {
                     Spacer()
                 }
                 .font(.footnote)
-                
+
                 HStack {
                     Text(order.orderedAt.shortDateString).fontWeight(.thin)
                     Text(" ")
@@ -153,14 +153,13 @@ struct OrderRow: View {
                     Spacer()
                 }
                 .font(.footnote)
-                
+
             }
             Spacer()
             Text(String(orderId)).fontWeight(.thin).font(.footnote)
         }
     }
 }
-
 
 struct OrdersView_Previews: PreviewProvider {
     static var previews: some View {

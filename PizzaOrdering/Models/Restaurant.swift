@@ -21,19 +21,19 @@ extension Restaurant {
     func getLocation() -> CLLocation {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
-    
+
     func distance(from location: CLLocation) -> CLLocationDistance {
         return abs(getLocation().distance(from: location))
     }
-    
+
     func distanceInKM(from location: CLLocation) -> Double {
         return Double(abs(getLocation().distance(from: location)) / 100) / 10
     }
-    
+
     var isDummy: Bool {
         return self.id == Restaurant.dummyRestaurant.id
     }
-    
+
     static var dummyRestaurant: Restaurant {
         return Restaurant(id: -1, name: "", address1: "", address2: "", latitude: 0, longitude: 0)
     }

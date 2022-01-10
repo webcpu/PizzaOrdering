@@ -41,8 +41,8 @@ struct OrderButton: View {
                minHeight: 0,
                maxHeight: 44)
         .background(Color.pink)
-        .padding(.horizontal,  20)
-        .padding(.vertical,  5)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 5)
     }
 }
 

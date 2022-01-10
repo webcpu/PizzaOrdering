@@ -14,11 +14,11 @@ import CocoaLumberjackSwift
 class OrdersViewModel: ObservableObject {
     @Published var items = [Restaurant]()
     @Published var location: CLLocation = CLLocation()
-    
+
     let locationService = LocationService.default
-    
+
     private var cancellable: AnyCancellable?
-    
+
     init() {
         if let loc = SwiftLocation.lastKnownGPSLocation {
             location = loc
@@ -26,7 +26,7 @@ class OrdersViewModel: ObservableObject {
         locationService.getCurrentLocation()
         updateItems()
     }
-    
+
     func updateItems() {
         cancellable = locationService.publisher
             .flatMap({loc in
@@ -37,8 +37,7 @@ class OrdersViewModel: ObservableObject {
                     }
                 }
             })
-            .sink(receiveValue:
-                    {(arg0: (CLLocation, [Restaurant])) -> Void in
+            .sink(receiveValue: {(arg0: (CLLocation, [Restaurant])) -> Void in
                 let (location, items) = arg0
                 DDLogInfo("receiveValue: \(arg0)")
                 DispatchQueue.main.async {
@@ -47,7 +46,7 @@ class OrdersViewModel: ObservableObject {
                 }
             })
     }
-    
+
     func compareByDistance(_ r1: Restaurant, r2: Restaurant) -> Bool {
         let distance1 = r1.distance(from: location)
         let distance2 = r2.distance(from: location)

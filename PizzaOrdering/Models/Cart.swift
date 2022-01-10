@@ -15,19 +15,19 @@ struct Cart: Codable {
         case items = "cart"
         case restaurantId = "restaurantId"
     }
-    
+
     var quantity: Int {
         return items.map({$0.quantity}).reduce(0, +)
     }
-    
+
     var subtotal: Decimal {
         return items.map({Decimal($0.quantity) * $0.price!}).reduce(0, +)
     }
-    
+
     var isDummy: Bool {
         return self.restaurantId == 0
     }
-    
+
     static var dummyCart: Cart {
         return Cart(items: [], restaurantId: 0)
     }

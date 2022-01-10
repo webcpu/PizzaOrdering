@@ -9,22 +9,22 @@ import Foundation
 import SwiftUI
 
 struct MyFont: ViewModifier {
-    
+
     @Environment(\.sizeCategory) var sizeCategory
-    
+
     public enum TextStyle {
         case title
         case body
         case price
     }
-    
+
     var textStyle: TextStyle
 
     func body(content: Content) -> some View {
         let font = UIFont.systemFont(ofSize: 18)
         return content.font(Font(uiFont: font))
     }
-    
+
     private var fontName: String {
         switch textStyle {
         case .title:
@@ -35,7 +35,7 @@ struct MyFont: ViewModifier {
             return "DisplayText-Semibold"
         }
     }
-    
+
     private var size: CGFloat {
         switch textStyle {
         case .title:

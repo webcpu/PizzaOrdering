@@ -20,7 +20,7 @@ struct CartButton: View {
             return Image(systemName: "cart").accentColor(.white)
         }
     }
-    
+
     var body: some View {
         Button(action: {
             DDLogInfo("view cart")
@@ -40,8 +40,8 @@ struct CartButton: View {
                minHeight: 0,
                maxHeight: 44)
         .background(Color.pink)
-        .padding(.horizontal,  20)
-        .padding(.vertical,  5)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 5)
         .fullScreenCover(isPresented: $isPresentedCartView) {
             if !cartViewModel.restaurant.isDummy {
                 CartView()

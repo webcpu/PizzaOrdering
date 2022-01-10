@@ -25,7 +25,7 @@ public class CartViewModel: ObservableObject {
         .store(in: &bag)
         return self
     }
-    
+
     func addItem(food: Food, quantity: Int) {
         var items = cart.items
         if let index = cart.items.map({$0.menuItemId}).firstIndex(of: food.id) {
@@ -39,23 +39,23 @@ public class CartViewModel: ObservableObject {
         }
         updateCart(items)
     }
-    
+
     func removeItem(atOffsets offsets: IndexSet) {
         var items = cart.items
         items.remove(atOffsets: offsets)
         updateCart(items)
     }
-    
+
     func updateCart(_ items: [LineItem]) {
         cart.items = items.filter({$0.quantity > 0})
     }
-    
+
     func clearCart() {
         DispatchQueue.main.async {
             self.cart.items = []
         }
     }
-    
+
     func createOrder() async -> OrderSummary? {
         if cart.isDummy {
             return nil

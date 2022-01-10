@@ -15,7 +15,7 @@ struct RestaurantsView: View {
     @ObservedObject var iO = injectionObserver
 #endif
     @StateObject var viewModel = RestaurantsViewModel()
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -26,7 +26,7 @@ struct RestaurantsView: View {
         }
         .eraseToAnyView()
     }
-    
+
     var internalRestaurantsView: some View {
         List(viewModel.items, id: \.id) { restaurant in
             NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
@@ -43,7 +43,7 @@ struct RestaurantsView: View {
         )
         .listStyle(GroupedListStyle())
     }
-    
+
     var cartButton: some View {
         if !self.cartViewModel.cart.isDummy && self.cartViewModel.cart.items.count > 0 {
             return AnyView(VStack {
@@ -61,7 +61,7 @@ struct RestaurantRow: View {
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
         return URL(string: pizzaURLString) }
-    
+
     var body: some View {
         VStack {
             restaurantImage
@@ -69,7 +69,7 @@ struct RestaurantRow: View {
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
     }
-    
+
     var restaurantImage: some View {
         CachedAsyncImage(url: pizzaURL,
                          content: { image in
@@ -83,9 +83,9 @@ struct RestaurantRow: View {
         })
             .cornerRadius(10)
     }
-    
+
     var restaurantInfo: some View {
-        HStack{
+        HStack {
             Text(restaurant.name).fontWeight(.medium)
             Spacer()
             Text(String(format: "%.1f km", restaurant.distanceInKM(from: location))).fontWeight(.thin)

@@ -26,7 +26,7 @@ class LocationServiceTests: XCTestCase {
         let locationService = LocationService.default
         let expected = CLLocation(latitude: 59.332400, longitude: 18.057240)
         let expectation = XCTestExpectation(description: "Publishes one value then finishes")
-        
+
         var bag = Set<AnyCancellable>()
 
         locationService.getCurrentLocation()

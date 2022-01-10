@@ -20,7 +20,7 @@ struct CartView: View {
     #if DEBUG
     @ObservedObject var iO = injectionObserver
     #endif
-    
+
     @State var isPresented: Bool = false
     @State var isLinkActive = false
     @State var isEditMode: EditMode = .inactive
@@ -32,11 +32,11 @@ struct CartView: View {
             Image(systemName: "xmark.circle")
         }
     }
-    
+
     var cartButton = Button(action: {DDLogInfo("cart")}) {
         Image(systemName: "cart")
     }
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -56,7 +56,7 @@ struct CartView: View {
                 }
                 .listStyle(.grouped)
                 .environment(\.editMode, self.$isEditMode)
-                
+
                 VStack {
                     Spacer()
                     NavigationLink(destination: CheckoutView(), isActive: $isLinkActive) {
@@ -85,30 +85,30 @@ struct CartView: View {
     //       .edgesIgnoringSafeArea(.horizontal)
     //.colorMultiply(.white)
     //.eraseToAnyView()
-    
+
     func delete(at offsets: IndexSet) {
         DDLogInfo("delete")
         cartViewModel.removeItem(atOffsets: offsets)
     }
 }
 
-fileprivate struct LineItemRow: View {
+private struct LineItemRow: View {
     @EnvironmentObject var cartViewModel: CartViewModel
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
     let lineItem: LineItem
     @State private var result: Result<Food, Error>?
-    
+
     init(lineItem: LineItem) {
         self.lineItem = lineItem
 //        self.restaurant = self.cartViewModel.restaurant
     }
-    
+
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
         return URL(string: pizzaURLString) }
-    
+
     var body: some View {
         switch result {
         case .success(let food):
@@ -119,7 +119,7 @@ fileprivate struct LineItemRow: View {
             return AnyView(ProgressView().onAppear(perform: load))
         }
     }
-    
+
     func load() {
         Task {
             let items = await BackendAPI.getMenu(cartViewModel.restaurant.id, "Pizza", "rank")
@@ -135,12 +135,12 @@ fileprivate struct LineItemRow: View {
 struct InternalLineItemRow: View {
     var lineItem: LineItem
     var food: Food
-    
+
     init(_ lineItem: LineItem, _ food: Food) {
         self.lineItem = lineItem
         self.food = food
     }
-    
+
     var body: some View {
         HStack {
             Text(String(lineItem.quantity)).padding(.trailing, 10)
@@ -154,7 +154,6 @@ struct InternalLineItemRow: View {
         .eraseToAnyView()
     }
 }
-
 
 //struct CartView_Previews: PreviewProvider {
 //    static var previews: some View {

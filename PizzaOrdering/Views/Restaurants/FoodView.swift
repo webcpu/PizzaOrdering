@@ -16,13 +16,13 @@ struct FoodView: View {
     @ObservedObject var iO = injectionObserver
 #endif
 //    @StateObject var viewModel: FoodViewModel
-    
+
     init(restaurant: Restaurant, food: Food) {
         self.restaurant = restaurant
         self.food = food
         //        self._viewModel = StateObject(wrappedValue: RestaurantViewModel(restaurantId))
     }
-    
+
     var body: some View {
         ZStack {
             List {
@@ -35,7 +35,7 @@ struct FoodView: View {
                             Text(item)
                                 .frame(maxWidth: .infinity)
                                 .listRowSeparator(.hidden)
-                            
+
                         }
                     }
                 }
@@ -53,7 +53,7 @@ struct FoodView: View {
             //.navigationTitle("Restaurants Near Me" + location.description)
             //            .navigationTitle(viewModel.location.description)
             //        .navigationTitle(food.name)
-            
+
             VStack {
                 Spacer()
                 AddItemButton(restaurant: restaurant, food: food)
@@ -80,10 +80,10 @@ struct FoodOptionRow: View {
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
         return URL(string: pizzaURLString) }
-    
+
     var body: some View {
         HStack {
-            VStack (alignment: .leading) {
+            VStack(alignment: .leading) {
                 Spacer()
                 Text(food.category).opacity(0.5)
                 Text(food.name)

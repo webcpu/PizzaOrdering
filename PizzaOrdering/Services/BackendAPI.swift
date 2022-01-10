@@ -13,19 +13,19 @@ struct BackendAPI {
     static let baseURL = "https://private-anon-2665225972-pizzaapp.apiary-mock.com/"
     static let restaurantsURL = baseURL + "restaurants/"
     static let ordersURL = baseURL + "orders/"
-    
+
     static func getRestaurantURL(_ id: Int) -> String {
         return restaurantsURL + String(id)
     }
-    
+
     static func getMenuURL(_ restaurantId: Int, _ category: String, _ orderBy: String) -> String {
         return getRestaurantURL(restaurantId) + "/menu"
     }
-    
+
     static func getOrderURL(_ orderId: Int) -> String {
         return ordersURL + String(orderId)
     }
-    
+
     //static func getRestaurants() async -> DataResponse<[Restaurant], AFError> {
     static func getRestaurants() async -> [Restaurant] {
         let restaurants: [Restaurant] = await withCheckedContinuation {
@@ -40,7 +40,7 @@ struct BackendAPI {
         }
         return restaurants
     }
-    
+
     //static func getRestaurant(_ id: Int) async -> DataResponse<Restaurant, AFError> {
     static func getRestaurant(_ id: Int) async -> Restaurant {
         let url = getRestaurantURL(id)
@@ -56,15 +56,15 @@ struct BackendAPI {
         }
         return restaurant
     }
-    
+
     //static func getMenu(_ restaurantId: Int, _ category: String, _ orderBy: String) async -> DataResponse<[Food], AFError> {
     static func getMenu(_ restaurantId: Int, _ category: String, _ orderBy: String) async -> [Food] {
         let url = getMenuURL(restaurantId, category, orderBy)
         let urlParams = [
             "category": category,
-            "orderBy": orderBy,
+            "orderBy": orderBy
         ]
-        let menu : [Food] = await withCheckedContinuation {
+        let menu: [Food] = await withCheckedContinuation {
             continuation in
             AF.request(url, method: .get, parameters: urlParams)
                 .validate(statusCode: 200..<300)
@@ -76,15 +76,15 @@ struct BackendAPI {
         }
         return menu
     }
-    
+
     static func createOrder(_ restaurantId: Int, _ lineItems: [LineItem]) async -> OrderSummary {
         let url = ordersURL
         let headers = HTTPHeaders([
-            "Content-Type":"application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8"
         ])
         let cart = Cart(items: lineItems, restaurantId: restaurantId)
         let body: [String: Any] = (try? cart.toDictionary()) ?? [:]
-        let orderResponse : OrderSummary = await withCheckedContinuation {
+        let orderResponse: OrderSummary = await withCheckedContinuation {
             continuation in
             AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
                 .validate(statusCode: 200..<300)
@@ -96,7 +96,7 @@ struct BackendAPI {
         }
         return orderResponse
     }
-    
+
     static func getOrder(_ id: Int) async -> Order? {
         let url = getOrderURL(id)
         let order: Order? = await withCheckedContinuation {

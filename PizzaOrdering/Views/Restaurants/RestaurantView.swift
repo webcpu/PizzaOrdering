@@ -17,12 +17,12 @@ struct RestaurantView: View {
     @ObservedObject var iO = injectionObserver
 #endif
     @StateObject var viewModel: RestaurantViewModel
-    
+
     init(restaurant: Restaurant) {
         self._restaurant = State(wrappedValue: restaurant)
         self._viewModel = StateObject(wrappedValue: RestaurantViewModel(restaurant))
     }
-    
+
     var body: some View {
         ZStack {
             internalRestaurantsView
@@ -51,7 +51,7 @@ struct RestaurantView: View {
         .colorMultiply(.white)
         .eraseToAnyView()
     }
-    
+
     var internalRestaurantsView: some View {
         List {
             ForEach(viewModel.items, id: \.id) { item in
@@ -83,20 +83,20 @@ struct FoodRow: View {
 #endif
     let restaurant: Restaurant
     let food: Food
-    
+
     init(restaurant: Restaurant, food: Food) {
         self.restaurant = restaurant
         self.food = food
     }
-    
+
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
         return URL(string: pizzaURLString) }
-    
+
     var body: some View {
-        
+
         HStack {
-            VStack (alignment: .leading) {
+            VStack(alignment: .leading) {
                 Text(food.category).opacity(0.5)
                 Spacer()
                 Text(food.name)

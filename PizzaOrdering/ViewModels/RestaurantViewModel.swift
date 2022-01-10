@@ -13,18 +13,18 @@ import CoreLocation
 class RestaurantViewModel: ObservableObject {
     @Published var restaurant: Restaurant
     @Published var items: [Food] = []
-    
+
     private var cancellable: AnyCancellable?
-    
+
     init(_ restaurant: Restaurant) {
         self.restaurant = restaurant
     }
-    
+
     func update() async {
         //self.restaurant = restaurant //await BackendAPI.getRestaurant(restaurantId)
         self.items = await BackendAPI.getMenu(restaurant.id, "Pizza", "rank")
     }
-    
+
 //    func updateItems() {
 //
 //        cancellable = $restaurant

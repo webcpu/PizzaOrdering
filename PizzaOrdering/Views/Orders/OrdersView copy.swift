@@ -14,7 +14,7 @@ struct OrdersView: View {
     @ObservedObject var iO = injectionObserver
 #endif
     @StateObject var viewModel = OrdersViewModel()
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -35,7 +35,7 @@ struct OrdersView: View {
                 .listStyle(GroupedListStyle())
                 //.edgesIgnoringSafeArea(.all)
                 //.navigationTitle("Restaurants Near Me" + location.description)
-                
+
                 if self.appState.cart != nil && self.appState.cart!.items.count > 0 {
                     VStack {
                         Spacer()
@@ -54,7 +54,7 @@ struct OrderRow: View {
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
         return URL(string: pizzaURLString) }
-    
+
     var body: some View {
         VStack {
             AsyncImage(url: pizzaURL,
@@ -70,7 +70,7 @@ struct OrderRow: View {
                 ProgressView()
             })
                 .cornerRadius(10)
-            HStack{
+            HStack {
                 Text(restaurant.name)
                 //                Text(restaurant.name)
                 Text("\(restaurant.latitude), \(restaurant.longitude)")

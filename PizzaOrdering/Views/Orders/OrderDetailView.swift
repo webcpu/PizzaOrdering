@@ -19,14 +19,14 @@ struct OrderDetailView: View {
 #endif
     @Binding private var order: Order
     @Binding private var restaurant: Restaurant
-    
+
     @State private var fields: KeyValuePairs<String, String> = [:]
-    
+
     init(_ theOrder: Binding<Order>, _ theRestaurant: Binding<Restaurant>) {
         self._order = theOrder
         self._restaurant = theRestaurant
     }
-    
+
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
@@ -40,7 +40,7 @@ struct OrderDetailView: View {
         }
         .eraseToAnyView()
     }
-    
+
     var restaurantView: some View {
         VStack {
             NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
@@ -68,7 +68,7 @@ struct OrderDetailView: View {
             Text(restaurant.name).font(.largeTitle)
         }
     }
-    
+
     var orderDetailView: some View {
         List {
             Section {
@@ -78,16 +78,16 @@ struct OrderDetailView: View {
                     Text(order.status)
                 }
             }
-            
+
             Section(header: Text("Your order")) {
-                ForEach(0..<order.items.count, id:\.self) {index in
+                ForEach(0..<order.items.count, id: \.self) {index in
                     LineItemRow(order.items[index], restaurant)
                 }
             }
-            
+
             Text("Total: SEK " + order.totalPrice.description)
             Section(header: Text("Detail")) {
-                ForEach(0..<self.fields.count, id:\.self) { index in
+                ForEach(0..<self.fields.count, id: \.self) { index in
                     OrderDetailRow(self.fields[index].0, fields[index].1)
                 }
             }
@@ -102,23 +102,23 @@ extension OrderDetailView {
             "Order ID": String(order.orderID),
             //            "Total Price": ("SEK " + order.totalPrice.description),
             "Ordered At": order.orderedAt.longDateString,
-            "Estimated Delivery": order.estimatedDelivery.longDateString,
+            "Estimated Delivery": order.estimatedDelivery.longDateString
             //            "Status": String(order.status.capitalized)
         ]
         return fields
     }
 }
 
-fileprivate struct LineItemRow: View {
+private struct LineItemRow: View {
     @State var food: Food = Food(id: -1, category: "", name: "", topping: [], price: 0, rank: nil)
     let restaurant: Restaurant
     let lineItem: LineItem
-    
+
     init(_ theLineItem: LineItem, _ restaurant: Restaurant) {
         self.lineItem = theLineItem
         self.restaurant = restaurant
     }
-    
+
     var body: some View {
         HStack {
             Text(String(lineItem.quantity))
@@ -139,12 +139,12 @@ fileprivate struct LineItemRow: View {
 struct OrderDetailRow: View {
     let key: String
     let value: String
-    
+
     init(_ key: String, _ value: String) {
         self.key = key
         self.value = value
     }
-    
+
     var body: some View {
         HStack {
             Text(key)
@@ -156,20 +156,20 @@ struct OrderDetailRow: View {
 
 struct _OrderDetailView: View {
     @State var fields: KeyValuePairs<String, String>
-    
+
     init(_ summary: OrderSummary) {
         self.fields = SummaryView.getSummaryItems(summary)
     }
-    
+
     var body: some View {
         ZStack {
             List {
-                ForEach (0..<self.fields.count, id:\.self) { index in
+                ForEach(0..<self.fields.count, id: \.self) { index in
                     OrderDetailRow(self.fields[index].0, fields[index].1)
                 }
             }
             .listStyle(.grouped)
-            
+
             VStack {
                 Spacer()
                 Text("Hi")

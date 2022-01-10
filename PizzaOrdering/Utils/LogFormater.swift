@@ -11,13 +11,13 @@ import CocoaLumberjackSwift
 
 class LogFormatter: DDDispatchQueueLogFormatter {
     let dateFormatter: DateFormatter
-    
+
     override init() {
         dateFormatter = DateFormatter()
         dateFormatter.formatterBehavior = .behavior10_4
         dateFormatter.dateFormat = "HH:mm:ss:SSS"
         //dateFormatter.dateFormat = "HH:mm"
-        
+
         super.init()
     }
     override func format(message: DDLogMessage) -> String {

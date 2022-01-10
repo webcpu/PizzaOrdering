@@ -14,7 +14,7 @@ struct AddItemButton: View {
     var food: Food
     var restaurant: Restaurant
     @State var quantity: Int = 0
-    
+
     @EnvironmentObject var cartViewModel: CartViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -22,7 +22,7 @@ struct AddItemButton: View {
         self.restaurant = restaurant
         self.food = food
     }
-        
+
     var body: some View {
         Button(action: {
             DDLogInfo("add")
@@ -43,10 +43,10 @@ struct AddItemButton: View {
                minHeight: 0,
                maxHeight: 44)
         .background(Color.pink)
-        .padding(.horizontal,  20)
-        .padding(.vertical,  5)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 5)
     }
-    
+
     fileprivate func addItem() {
         dump(cartViewModel.cart.items)
         cartViewModel.addItem(food: food, quantity: 1)

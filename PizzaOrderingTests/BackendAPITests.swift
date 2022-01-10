@@ -23,14 +23,14 @@ class BackendAPITests: XCTestCase {
         let result   = await BackendAPI.getRestaurants()
         XCTAssertEqual(expected, result)
     }
-    
+
     func testGetRestaurant() async throws {
         let expected = TestData.restaurant
         let id = 2
         let result   = await BackendAPI.getRestaurant(id)
         XCTAssertEqual(expected, result)
     }
-    
+
     func testMenu() async throws {
         let expected = TestData.menu
         let restaurantId = 2
@@ -39,7 +39,7 @@ class BackendAPITests: XCTestCase {
         let result   = await BackendAPI.getMenu(restaurantId, category, orderBy)
         XCTAssertEqual(expected, result)
     }
-    
+
     func testCreateOrder() async throws {
         let expected = TestData.newOrder
         let restaurantId = 1
@@ -50,24 +50,24 @@ class BackendAPITests: XCTestCase {
         let result   = await BackendAPI.createOrder(restaurantId, lineItems)
         XCTAssertEqual(expected, result)
     }
-    
+
     func testGetOrder() async throws {
         let expected = TestData.oldOrder
         let orderId = 1234412
         let result   = await BackendAPI.getOrder(orderId)
         XCTAssertEqual(expected, result)
     }
-    
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-    
+
 }
 
-fileprivate class TestData {
+private class TestData {
     //restaurants
     static let restaurant1 = Restaurant(id: 2,
                                         name: "Pizza Heaven",
@@ -82,7 +82,7 @@ fileprivate class TestData {
                                         latitude: 59.3157090,
                                         longitude: 18.0335070)
     static let restaurants: [Restaurant] = [restaurant1, restaurant2]
-    
+
     //restaurant
     static let restaurant = Restaurant(id: 1,
                                        name: "Pizzeria Apan",
@@ -99,7 +99,7 @@ fileprivate class TestData {
      Food(id: 5, category: "Dryck", name: "Loka citron, 33cl", topping: nil, price: 10, rank: nil),
      Food(id: 6, category: "Tillbehör", name: "Pizzasallad", topping: nil, price: 0, rank: nil),
      Food(id: 7, category: "Tillbehör", name: "Bröd och smör", topping: nil, price: 10, rank: nil)]
-    
+
     //new order
     static let newOrder = OrderSummary(
         orderID: 1234412,
@@ -107,10 +107,9 @@ fileprivate class TestData {
         orderedAt: Date.fromISODateString("2015-04-09T17:30:47.556Z") ?? Date.distantPast,
         estimatedDelivery: Date.fromISODateString("2015-04-09T17:45:47.556Z") ?? Date.distantPast,
         status: "ordered")
-    
+
     //old order
     static let orderedAt: Date = Date.fromISODateString("2015-04-09T17:30:47.556Z") ?? Date.distantPast
     static let estimatedDelivery: Date = Date.fromISODateString("2015-04-09T17:50:47.556Z") ?? Date.distantPast
     static let oldOrder = Order(orderID: 1234412, totalPrice: 168, orderedAt: orderedAt, estimatedDelivery: estimatedDelivery, status: "baking", items: [PizzaOrdering.LineItem(menuItemId: 2, quantity: 1), PizzaOrdering.LineItem(menuItemId: 3, quantity: 1), PizzaOrdering.LineItem(menuItemId: 6, quantity: 2)], restaurantId: 1)
 }
-
