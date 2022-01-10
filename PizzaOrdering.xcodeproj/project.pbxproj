@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC12259D2787A23200D4AB49 /* OrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259C2787A23200D4AB49 /* OrderButton.swift */; };
 		EC12259F2787ACC000D4AB49 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259E2787ACC000D4AB49 /* AddItemButton.swift */; };
-		EC7291FC278B635000F417FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7291FB278B635000F417FA /* MainView.swift */; };
+		EC7291FC278B635000F417FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7291FB278B635000F417FA /* ContentView.swift */; };
 		EC729200278B810500F417FA /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC7291FF278B810500F417FA /* CachedAsyncImage */; };
 		EC729202278C2F4000F417FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC729201278C2F4000F417FA /* README.md */; };
 		EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC82D9AA2788654B00BD0778 /* Decimal.swift */; };
@@ -71,7 +71,7 @@
 /* Begin PBXFileReference section */
 		EC12259C2787A23200D4AB49 /* OrderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderButton.swift; sourceTree = "<group>"; };
 		EC12259E2787ACC000D4AB49 /* AddItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemButton.swift; sourceTree = "<group>"; };
-		EC7291FB278B635000F417FA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EC7291FB278B635000F417FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EC729201278C2F4000F417FA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.documentation.markup; };
 		EC82D9AA2788654B00BD0778 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		EC8C1139278624B50043DD30 /* PizzaOrdering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrdering.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,7 +253,7 @@
 				ECFBE6FA2789A6B300102D69 /* Cart */,
 				ECFBE6FB2789A71600102D69 /* Purchase */,
 				ECFBE6F42789A57300102D69 /* Orders */,
-				EC7291FB278B635000F417FA /* MainView.swift */,
+				EC7291FB278B635000F417FA /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -510,7 +510,7 @@
 				ECB03ADA2786D44100674599 /* RestaurantsView.swift in Sources */,
 				ECB03AD82786682400674599 /* Cart.swift in Sources */,
 				ECB03AEC2787359E00674599 /* RestaurantViewModel.swift in Sources */,
-				EC7291FC278B635000F417FA /* MainView.swift in Sources */,
+				EC7291FC278B635000F417FA /* ContentView.swift in Sources */,
 				ECB03AF62787925E00674599 /* CartView.swift in Sources */,
 				ECB03AF227875EEF00674599 /* CartButton.swift in Sources */,
 			);

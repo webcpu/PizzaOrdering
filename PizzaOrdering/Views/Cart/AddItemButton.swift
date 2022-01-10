@@ -11,6 +11,10 @@ import Combine
 import CocoaLumberjackSwift
 
 struct AddItemButton: View {
+#if DEBUG
+    @ObservedObject var iO = injectionObserver
+#endif
+
     var food: Food
     var restaurant: Restaurant
     @State var quantity: Int = 0
@@ -36,6 +40,8 @@ struct AddItemButton: View {
                 Spacer()
                 Text("SEK \(food.price.description)").foregroundColor(.white)
             }
+            .font(.headline)
+            .cornerRadius(5)
             .padding(.horizontal, 10)
         }
         .frame(minWidth: 0,
@@ -46,6 +52,7 @@ struct AddItemButton: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 5)
         .accessibility(identifier: "addFood")
+        .eraseToAnyView()
     }
 
     fileprivate func addItem() {

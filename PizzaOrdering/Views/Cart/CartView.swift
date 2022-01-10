@@ -41,11 +41,12 @@ struct CartView: View {
         NavigationView {
             ZStack {
                 List {
-                    Text(cartViewModel.restaurant.name)
+                    Text(cartViewModel.restaurant.name).font(.headline)
                     ForEach(0..<cartViewModel.cart.items.count, id: \.self) { index in
                         let item = cartViewModel.cart.items[index]
                         LineItemRow(lineItem: item)
                             .frame(maxWidth: .infinity)
+                            .font(.subheadline)
                     }
                     .onDelete(perform: delete)
                     HStack {

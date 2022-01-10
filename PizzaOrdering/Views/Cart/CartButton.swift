@@ -31,6 +31,7 @@ struct CartButton: View {
                 cartImage()
                 Spacer()
                 Text("View cart (\(cartViewModel.quantity))").foregroundColor(.white)
+                    .font(.headline)
                     .accessibility(identifier: "viewCart")
                 Spacer()
             }
@@ -43,6 +44,7 @@ struct CartButton: View {
         .background(Color.pink)
         .padding(.horizontal, 20)
         .padding(.vertical, 5)
+        .cornerRadius(5)
         .fullScreenCover(isPresented: $isPresentedCartView) {
             if !cartViewModel.restaurant.isDummy {
                 CartView()

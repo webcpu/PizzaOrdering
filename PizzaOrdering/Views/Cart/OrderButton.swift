@@ -31,7 +31,7 @@ struct OrderButton: View {
                     Image(systemName: "cart").accentColor(.white)
                 }
                 Spacer()
-                Text("Order").foregroundColor(.white)
+                Text("Order").foregroundColor(.white).font(.headline)
                 Spacer()
             }
             .padding(.horizontal, 10)

@@ -10,6 +10,7 @@ import CocoaLumberjackSwift
 
 @main
 struct PizzaOrderingApp: App {
+    @StateObject private var cartViewModel = CartViewModel().connect()
     init() {
         LocationService.default.getCurrentLocation()
 
@@ -21,7 +22,7 @@ struct PizzaOrderingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView().environmentObject(CartViewModel().connect())
+            ContentView().environmentObject(cartViewModel)
         }
     }
 }

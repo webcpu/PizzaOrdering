@@ -53,11 +53,11 @@ struct InternalOrdersView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+//            VStack {
                 List {
-                    Section(header:
-                                Text("Current Orders").font(.title3).fontWeight(.medium)
-                    ) {
+//                    Section(header:
+//                                Text("Current Orders").font(.title3).fontWeight(.medium)
+//                    ) {
                         ForEach(0..<self.orderIds.count, id: \.self) { index in
                             NavigationLink(destination: OrderDetailView($order, $restaurant)) {
                                 OrderRow(self.orderIds[index], $order, $restaurant)
@@ -65,12 +65,12 @@ struct InternalOrdersView: View {
                             .accessibility(addTraits: .isButton)
                             .accessibility(identifier: "order\(index)")
                         }
-                    }
+                    //}
                 }
-                .listStyle(.insetGrouped)
-                Spacer()
-            }
-            .navigationBarTitle("Your Orders", displayMode: .inline)
+   //             .listStyle(.insetGrouped)
+ //               Spacer()
+  //          }
+            .navigationTitle("Orders")
         }
         .navigationViewStyle(.stack)
         //.ignoresSafeArea(.all)
@@ -124,34 +124,38 @@ struct OrderRow: View {
     
     var internalOrderRow: some View {
         HStack {
-            Image("r1").resizable().frame(width: 60, height: 45)
+            let imageClipShape = RoundedRectangle(cornerRadius: 10, style: .continuous)
+            Image("r1").resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 60, height: 60)
+                .clipShape(imageClipShape)
+                .overlay(imageClipShape.strokeBorder(.quaternary, lineWidth: 0.5))
             VStack {
                 HStack {
-                    Text(String(restaurant.name)).font(.callout).fontWeight(.medium)
+                    Text(String(restaurant.name))
+                        .font(.headline)
                     Spacer()
                 }
                 HStack {
                     Text("items: " + String(order.quantity))
-                        .fontWeight(.thin)
                     Text(" ")
                     Text("SEK " + order.totalPrice.description)
-                        .fontWeight(.thin)
                     Spacer()
                 }
-                .font(.footnote)
                 
                 HStack {
-                    Text(order.orderedAt.shortDateString).fontWeight(.thin)
+                    Text(order.orderedAt.shortDateString)
                     Text(" ")
-                    Text(order.status).fontWeight(.thin)
+                    Text(order.status)
                     Spacer()
                 }
-                .font(.footnote)
+                .foregroundStyle(.secondary)
                 
             }
             Spacer()
-            Text(String(orderId)).fontWeight(.thin).font(.footnote)
+            //Text(String(orderId))
         }
+        .font(.subheadline)
     }
 }
 

@@ -8,13 +8,18 @@
 import Foundation
 import SwiftUI
 
-struct MainView: View {
+struct ContentView: View {
+    enum Tab {
+        case browse
+        case orders
+    }
+    
     @EnvironmentObject var cartViewModel: CartViewModel
     #if DEBUG
     @ObservedObject var iO = injectionObserver
     #endif
 
-    @State private var selection = 0
+    @State private var selection: Tab = .browse
 
     var body: some View {
         TabView(selection: $selection) {
@@ -33,14 +38,14 @@ struct MainView: View {
     }
 }
 
-extension MainView {
+extension ContentView {
     var restaurantsView: some View {
         return RestaurantsView()
         .tabItem {
             Image(systemName: "magnifyingglass.circle.fill")
             Text("Browse")
         }
-        .tag(0)
+        .tag(Tab.browse)
         .eraseToAnyView()
     }
 
@@ -50,7 +55,7 @@ extension MainView {
             Image(systemName: "list.bullet.rectangle.portrait.fill")
             Text("Orders")
         }
-        .tag(1)
+        .tag(Tab.orders)
         .eraseToAnyView()
     }
 }

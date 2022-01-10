@@ -99,13 +99,15 @@ struct FoodRow: View {
 
         HStack {
             VStack(alignment: .leading) {
-                Text(food.category).opacity(0.5)
+                Text(food.name).font(.headline)
                 Spacer()
-                Text(food.name)
+                Text("SEK \(food.price.description)")
+                Spacer()
+                Text(food.category).foregroundStyle(.secondary)
                 Spacer()
                 //                Text(restaurant.name)
-                Text("SEK \(food.price.description)").font(.body)
             }
+            .font(.subheadline)
             Spacer()
             CachedAsyncImage(url: pizzaURL,
                              content: { image in

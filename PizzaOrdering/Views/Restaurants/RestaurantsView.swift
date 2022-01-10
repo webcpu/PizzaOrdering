@@ -22,7 +22,7 @@ struct RestaurantsView: View {
                 internalRestaurantsView
                 cartButton
             }
-            .navigationBarTitle("Restaurants", displayMode: .inline)
+            .navigationTitle("Restaurants")
         }
         .eraseToAnyView()
     }
