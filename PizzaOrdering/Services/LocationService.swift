@@ -44,7 +44,12 @@ class LocationService {
         switch result {
         case .success(let newData):
             DDLogInfo("New location: \(newData)")
+#if targetEnvironment(simulator)
+            //Use custom location in simulator
+            self.publisher.send(CLLocation(latitude: 59.3324, longitude: 18.05724))
+#else
             self.publisher.send(newData)
+#endif
         case .failure(let error):
             DDLogInfo("An error has occurred: \(error.localizedDescription)")
         }

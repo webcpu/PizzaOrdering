@@ -12,7 +12,6 @@ extension Date {
     static func fromISODateString(_ isoDateString: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-        //dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
 
         let date = dateFormatter.date(from: isoDateString)
@@ -64,14 +63,3 @@ extension ISO8601DateFormatter {
 extension Formatter {
     static let iso8601withFractionalSeconds = ISO8601DateFormatter([.withInternetDateTime, .withFractionalSeconds])
 }
-
-//extension Formatter {
-//    static let iso8601withFractionalSeconds: DateFormatter = {
-//        let formatter = DateFormatter()
-//        formatter.calendar = Calendar(identifier: .iso8601)
-//        formatter.locale = Locale(identifier: "en_US_POSIX")
-//        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
-//        return formatter
-//    }()
-//}

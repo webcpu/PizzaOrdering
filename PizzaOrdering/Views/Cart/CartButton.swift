@@ -31,6 +31,7 @@ struct CartButton: View {
                 cartImage()
                 Spacer()
                 Text("View cart (\(cartViewModel.quantity))").foregroundColor(.white)
+                    .accessibility(identifier: "viewCart")
                 Spacer()
             }
             .padding(.horizontal, 10)
@@ -48,6 +49,7 @@ struct CartButton: View {
             }
         }
         .opacity(cartViewModel.quantity > 0 ? 1 : 0)
+        .accessibility(identifier: "showCart")
     }
 }
 

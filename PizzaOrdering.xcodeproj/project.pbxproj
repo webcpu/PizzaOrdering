@@ -291,9 +291,9 @@
 		ECFBE6FA2789A6B300102D69 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				EC12259C2787A23200D4AB49 /* OrderButton.swift */,
 				ECB03AF52787925E00674599 /* CartView.swift */,
 				ECB03AF127875EEE00674599 /* CartButton.swift */,
+				EC12259C2787A23200D4AB49 /* OrderButton.swift */,
 				EC12259E2787ACC000D4AB49 /* AddItemButton.swift */,
 			);
 			path = Cart;
@@ -357,6 +357,8 @@
 				EC8C114B278624B80043DD30 /* PBXTargetDependency */,
 			);
 			name = PizzaOrderingTests;
+			packageProductDependencies = (
+			);
 			productName = PizzaOrderingTests;
 			productReference = EC8C1149278624B80043DD30 /* PizzaOrderingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -682,6 +684,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -719,6 +722,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

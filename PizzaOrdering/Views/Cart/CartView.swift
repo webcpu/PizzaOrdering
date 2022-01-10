@@ -51,7 +51,9 @@ struct CartView: View {
                     HStack {
                         Text("Subtotal").fontWeight(.semibold)
                         Spacer()
-                        Text("SEK \(cartViewModel.subtotal.description)").fontWeight(.semibold)
+                        Text("SEK \(cartViewModel.subtotal.description)")
+                            .fontWeight(.semibold)
+                            .accessibility(identifier: "cart.subtotal")
                     }
                 }
                 .listStyle(.grouped)

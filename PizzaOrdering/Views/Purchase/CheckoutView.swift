@@ -93,7 +93,7 @@ struct OrderSummaryRow: View {
         HStack {
             Text(key)
             Spacer()
-            Text(value)
+            Text(value).accessibility(identifier: "summary." + key)
         }
     }
 }

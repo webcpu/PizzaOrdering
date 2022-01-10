@@ -53,35 +53,28 @@ struct InternalOrdersView: View {
 
     var body: some View {
         NavigationView {
-//            ZStack {
-                //                Color(uiColor: UIColor.systemBackground)
-                //                    .edgesIgnoringSafeArea(.all)
-                VStack {
-                    List {
-                        Section(header:
-                                    Text("Current Orders").font(.title3).fontWeight(.medium)
-                        ) {
-                            ForEach(0..<self.orderIds.count, id: \.self) { index in
-                                NavigationLink(destination: OrderDetailView($order, $restaurant)) {
-                                    OrderRow(self.orderIds[index], $order, $restaurant)
-                                }
+            VStack {
+                List {
+                    Section(header:
+                                Text("Current Orders").font(.title3).fontWeight(.medium)
+                    ) {
+                        ForEach(0..<self.orderIds.count, id: \.self) { index in
+                            NavigationLink(destination: OrderDetailView($order, $restaurant)) {
+                                OrderRow(self.orderIds[index], $order, $restaurant)
                             }
+                            .accessibility(addTraits: .isButton)
+                            .accessibility(identifier: "order\(index)")
                         }
                     }
-//                    .padding(.top, 30)
-                    .listStyle(.insetGrouped)
-                    Spacer()
                 }
-                .navigationBarTitle("Your Orders", displayMode: .inline)
- //           }
-
-            //.navigationBarTitle("Orders")
- //                   .ignoresSafeArea(.all)
-
+                .listStyle(.insetGrouped)
+                Spacer()
+            }
+            .navigationBarTitle("Your Orders", displayMode: .inline)
         }
         .navigationViewStyle(.stack)
         //.ignoresSafeArea(.all)
-
+        
         .onAppear(perform: {
             // UITableView.appearance().backgroundColor = .systemBackground
         })
@@ -93,16 +86,17 @@ struct OrderRow: View {
     @Binding var order: Order
     @Binding var restaurant: Restaurant
     @State private var result: Result<Order, Error>?
-
+    
     init(_ id: Int, _ order: Binding<Order>, _ restaurant: Binding<Restaurant>) {
         _orderId = State(wrappedValue: id)
         self._order = order
         self._restaurant = restaurant
     }
-
+    
     var body: some View {
         switch result {
         case .success(let order):
+            self.order = order
             return AnyView(internalOrderRow)
         case .failure(let error):
             return AnyView(Text("Unknown Error"))
@@ -114,7 +108,7 @@ struct OrderRow: View {
         //            order = await BackendAPI.getOrder(orderId)
         //        }
     }
-
+    
     func load() {
         Task {
             if let order = await BackendAPI.getOrder(orderId) {
@@ -127,7 +121,7 @@ struct OrderRow: View {
             }
         }
     }
-
+    
     var internalOrderRow: some View {
         HStack {
             Image("r1").resizable().frame(width: 60, height: 45)
@@ -145,7 +139,7 @@ struct OrderRow: View {
                     Spacer()
                 }
                 .font(.footnote)
-
+                
                 HStack {
                     Text(order.orderedAt.shortDateString).fontWeight(.thin)
                     Text(" ")
@@ -153,7 +147,7 @@ struct OrderRow: View {
                     Spacer()
                 }
                 .font(.footnote)
-
+                
             }
             Spacer()
             Text(String(orderId)).fontWeight(.thin).font(.footnote)

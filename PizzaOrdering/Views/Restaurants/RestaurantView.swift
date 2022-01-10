@@ -60,6 +60,8 @@ struct RestaurantView: View {
                         FoodRow(restaurant: viewModel.restaurant, food: item)
                     }
                     .frame(maxWidth: .infinity)
+                    .accessibility(addTraits: .isButton)
+                    .accessibility(identifier: "food" + String(viewModel.items.firstIndex(of: item) ?? 0))
                     //        .listRowSeparator(.hidden)
                 }
             }

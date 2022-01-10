@@ -65,7 +65,12 @@ struct OrderDetailView: View {
                     }
                 }
             }
-            Text(restaurant.name).font(.largeTitle)
+            .accessibility(addTraits: .isButton)
+            .accessibility(identifier: "order.viewshop")
+            
+            Text(restaurant.name)
+                .font(.largeTitle)
+                .accessibility(identifier: "order.restaurant.name")
         }
     }
 
@@ -75,7 +80,8 @@ struct OrderDetailView: View {
                 HStack {
                     Text(order.orderedAt.shortDateString)
                     Spacer()
-                    Text(order.status)
+                    Text(order.status.capitalized)
+                        .accessibility(identifier: "order.status")
                 }
             }
 
@@ -86,6 +92,8 @@ struct OrderDetailView: View {
             }
 
             Text("Total: SEK " + order.totalPrice.description)
+                .accessibility(identifier: "order.total")
+
             Section(header: Text("Detail")) {
                 ForEach(0..<self.fields.count, id: \.self) { index in
                     OrderDetailRow(self.fields[index].0, fields[index].1)

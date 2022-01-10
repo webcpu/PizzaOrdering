@@ -45,6 +45,7 @@ struct AddItemButton: View {
         .background(Color.pink)
         .padding(.horizontal, 20)
         .padding(.vertical, 5)
+        .accessibility(identifier: "addFood")
     }
 
     fileprivate func addItem() {
