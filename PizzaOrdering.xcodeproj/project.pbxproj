@@ -11,6 +11,7 @@
 		EC12259F2787ACC000D4AB49 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC12259E2787ACC000D4AB49 /* AddItemButton.swift */; };
 		EC7291FC278B635000F417FA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7291FB278B635000F417FA /* MainView.swift */; };
 		EC729200278B810500F417FA /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC7291FF278B810500F417FA /* CachedAsyncImage */; };
+		EC729202278C2F4000F417FA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC729201278C2F4000F417FA /* README.md */; };
 		EC82D9AB2788654B00BD0778 /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC82D9AA2788654B00BD0778 /* Decimal.swift */; };
 		EC8C113D278624B50043DD30 /* PizzaOrderingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */; };
 		EC8C1141278624B80043DD30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C1140278624B80043DD30 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		EC12259C2787A23200D4AB49 /* OrderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderButton.swift; sourceTree = "<group>"; };
 		EC12259E2787ACC000D4AB49 /* AddItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemButton.swift; sourceTree = "<group>"; };
 		EC7291FB278B635000F417FA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EC729201278C2F4000F417FA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.documentation.markup; };
 		EC82D9AA2788654B00BD0778 /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
 		EC8C1139278624B50043DD30 /* PizzaOrdering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrdering.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8C113C278624B50043DD30 /* PizzaOrderingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaOrderingApp.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		EC8C1130278624B50043DD30 = {
 			isa = PBXGroup;
 			children = (
+				EC729201278C2F4000F417FA /* README.md */,
 				EC8C113B278624B50043DD30 /* PizzaOrdering */,
 				EC8C114C278624B80043DD30 /* PizzaOrderingTests */,
 				EC8C1156278624B80043DD30 /* PizzaOrderingUITests */,
@@ -430,6 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC729202278C2F4000F417FA /* README.md in Resources */,
 				EC8C1144278624B80043DD30 /* Preview Assets.xcassets in Resources */,
 				EC8C1141278624B80043DD30 /* Assets.xcassets in Resources */,
 			);

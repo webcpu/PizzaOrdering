@@ -29,11 +29,10 @@ struct RestaurantsView: View {
     
     var internalRestaurantsView: some View {
         List(viewModel.items, id: \.id) { restaurant in
-            NavigationLink(destination:
-                            RestaurantView(restaurant: restaurant)) {
+            NavigationLink(destination: RestaurantView(restaurant: restaurant)) {
                 RestaurantRow(location: viewModel.location, restaurant: restaurant)
             }
-                            .listRowSeparator(.hidden)
+            .listRowSeparator(.hidden)
         }
         .frame(
             minWidth: 0,
