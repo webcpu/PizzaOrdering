@@ -88,10 +88,11 @@ struct RestaurantRow: View {
 
     var restaurantInfo: some View {
         HStack {
-            Text(restaurant.name).fontWeight(.medium)
+            Text(restaurant.name).font(.headline)
             Spacer()
-            Text(String(format: "%.1f km", restaurant.distanceInKM(from: location))).fontWeight(.thin)
+            Text(String(format: "%.1f km", restaurant.distanceInKM(from: location)))
         }
+        .font(.subheadline)
     }
 }
 
