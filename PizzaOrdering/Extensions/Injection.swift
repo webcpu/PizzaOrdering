@@ -20,7 +20,7 @@ private var loadInjection: () = {
     let bundleName = "maciOSInjection.bundle"
     #endif
 #if targetEnvironment(simulator)
-    Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/"+bundleName)!.load()
+    Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/"+bundleName)?.load()
 #endif
 }()
 
