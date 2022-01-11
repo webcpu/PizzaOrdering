@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import CachedAsyncImage
+import CocoaLumberjackSwift
 
 struct RestaurantView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -17,15 +18,27 @@ struct RestaurantView: View {
     @ObservedObject var iO = injectionObserver
 #endif
     @StateObject var viewModel: RestaurantViewModel
-
+    
+    var listedFoods: [Food] {
+        viewModel.items
+            .filter { $0.matches(viewModel.searchString)}
+//            .sorted(by: {
+//                if $0.category.localizedCompare($1.category) != .orderedSame {
+//                    return $0.category.localizedCompare($1.category) == .orderedAscending
+//                } else {
+//                    return $0.name.localizedCompare($1.name) == .orderedAscending
+//                }
+//            })
+    }
+    
     init(restaurant: Restaurant) {
         self._restaurant = State(wrappedValue: restaurant)
         self._viewModel = StateObject(wrappedValue: RestaurantViewModel(restaurant))
     }
-
+    
     var body: some View {
         ZStack {
-            internalRestaurantsView
+            internalRestaurantView
             VStack {
                 Spacer()
                 CartButton()
@@ -51,8 +64,8 @@ struct RestaurantView: View {
         .colorMultiply(.white)
         .eraseToAnyView()
     }
-
-    var internalRestaurantsView: some View {
+    
+    var internalRestaurantView: some View {
         List {
             ForEach(viewModel.items, id: \.id) { item in
                 if !viewModel.restaurant.isDummy {
@@ -61,7 +74,9 @@ struct RestaurantView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .accessibility(addTraits: .isButton)
-                    .accessibility(identifier: "food" + String(viewModel.items.firstIndex(of: item) ?? 0))
+//                    .accessibility(identifier: "food" + String(index))
+                    .accessibility(identifier: "food" + String(viewModel.items.firstIndex(of: item) ?? -1))
+
                     //        .listRowSeparator(.hidden)
                 }
             }
@@ -72,9 +87,14 @@ struct RestaurantView: View {
                 maxHeight: .infinity,
                 alignment: .topLeading
             )
-            //                .listStyle(.grouped)
-            .listStyle(.insetGrouped)
-            //            .listStyle(GroupedListStyle())
+//            .searchable(text: $viewModel.searchString) {
+//                ForEach(Array(viewModel.searchSuggestions.enumerated()), id: \.offset) { index, suggestion in
+//                    Text(suggestion.name).searchCompletion(suggestion.name)
+//                }
+//            }
+            .onChange(of: viewModel.searchString) { newValue in
+                DDLogInfo(newValue)
+            }
         }
     }
 }
@@ -85,18 +105,18 @@ struct FoodRow: View {
 #endif
     let restaurant: Restaurant
     let food: Food
-
+    
     init(restaurant: Restaurant, food: Food) {
         self.restaurant = restaurant
         self.food = food
     }
-
+    
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
         return URL(string: pizzaURLString) }
-
+    
     var body: some View {
-
+        
         HStack {
             VStack(alignment: .leading) {
                 Text(food.name).font(.headline)
@@ -109,15 +129,10 @@ struct FoodRow: View {
             }
             .font(.subheadline)
             Spacer()
-            CachedAsyncImage(url: pizzaURL,
-                             content: { image in
-                image.resizable()
-                    .scaledToFill()
-                    .frame(width: 160, height: 90)
-            },
-                             placeholder: {
-                ProgressView()
-            })
+            Image(food.imageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 160, height: 90)
                 .cornerRadius(10)
         }
         //.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

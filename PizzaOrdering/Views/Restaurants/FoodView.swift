@@ -24,8 +24,7 @@ struct FoodView: View {
 
     init(restaurant: Restaurant, food: Food) {
         self.restaurant = restaurant
-        self.food = food
-        //        self._viewModel = StateObject(wrappedValue: RestaurantViewModel(restaurantId))
+        self._food = State(wrappedValue: food)
     }
 
     var body: some View {

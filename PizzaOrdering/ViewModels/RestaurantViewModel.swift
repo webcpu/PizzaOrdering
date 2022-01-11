@@ -13,6 +13,7 @@ import CoreLocation
 class RestaurantViewModel: ObservableObject {
     @Published var restaurant: Restaurant
     @Published var items: [Food] = []
+    @Published var searchString = ""
 
     private var cancellable: AnyCancellable?
 
@@ -24,6 +25,14 @@ class RestaurantViewModel: ObservableObject {
         //self.restaurant = restaurant //await BackendAPI.getRestaurant(restaurantId)
         self.items = await BackendAPI.getMenu(restaurant.id, "Pizza", "rank")
     }
+    
+    var searchSuggestions: [Food] {
+        items.filter {
+            $0.name.localizedCaseInsensitiveContains(searchString) &&
+            $0.name.localizedCaseInsensitiveCompare(searchString) != .orderedSame
+        }
+    }
+
 
 //    func updateItems() {
 //

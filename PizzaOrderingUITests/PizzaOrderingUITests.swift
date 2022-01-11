@@ -86,6 +86,7 @@ class PizzaOrderingUITests: XCTestCase {
         let showCartButton = app.buttons["showCart"]
         showCartButton.tap()
         let subtotalText = app.staticTexts["cart.subtotal"]
+        XCTAssertTrue(subtotalText.waitForExistence(timeout: 2))
         XCTAssertEqual(subtotalText.label, "SEK 79.00")
     }
    
@@ -123,6 +124,7 @@ class PizzaOrderingUITests: XCTestCase {
     
     fileprivate func verifyOrderDetail(_ app: XCUIApplication) {
         let restaurantNameText = app.staticTexts["order.restaurant.name"]
+        XCTAssertTrue(restaurantNameText.waitForExistence(timeout: 2.0))
         XCTAssertEqual(restaurantNameText.label, "Pizzeria Apan")
         
         let totalText = app.staticTexts["order.total"]

@@ -25,7 +25,7 @@
 		EC99DEA7278AF4E30052D926 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC99DEA6278AF4E30052D926 /* CocoaLumberjackSwift */; };
 		EC99DEA9278AF8750052D926 /* LogFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC99DEA8278AF8750052D926 /* LogFormater.swift */; };
 		EC99DEAC278AF9010052D926 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = EC99DEAB278AF9010052D926 /* CocoaLumberjack */; };
-		ECB03AD127864D0D00674599 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD027864D0D00674599 /* Menu.swift */; };
+		ECB03AD127864D0D00674599 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD027864D0D00674599 /* Food.swift */; };
 		ECB03AD327865B1700674599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD227865B1600674599 /* Order.swift */; };
 		ECB03AD6278666B200674599 /* Encodeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD5278666B200674599 /* Encodeable.swift */; };
 		ECB03AD82786682400674599 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB03AD72786682400674599 /* Cart.swift */; };
@@ -86,7 +86,7 @@
 		EC8C1167278628530043DD30 /* BackendAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendAPI.swift; sourceTree = "<group>"; };
 		EC8C116A278629590043DD30 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		EC99DEA8278AF8750052D926 /* LogFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFormater.swift; sourceTree = "<group>"; };
-		ECB03AD027864D0D00674599 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		ECB03AD027864D0D00674599 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		ECB03AD227865B1600674599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		ECB03AD5278666B200674599 /* Encodeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodeable.swift; sourceTree = "<group>"; };
 		ECB03AD72786682400674599 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				EC8C116A278629590043DD30 /* Restaurant.swift */,
-				ECB03AD027864D0D00674599 /* Menu.swift */,
+				ECB03AD027864D0D00674599 /* Food.swift */,
 				ECB03AD72786682400674599 /* Cart.swift */,
 				ECB03AD227865B1600674599 /* Order.swift */,
 			);
@@ -486,7 +486,7 @@
 				EC99DEA9278AF8750052D926 /* LogFormater.swift in Sources */,
 				ECB03AD327865B1700674599 /* Order.swift in Sources */,
 				ECB03AE827871A7A00674599 /* RestaurantsViewModel.swift in Sources */,
-				ECB03AD127864D0D00674599 /* Menu.swift in Sources */,
+				ECB03AD127864D0D00674599 /* Food.swift in Sources */,
 				ECB03AF42787713500674599 /* CartViewModel.swift in Sources */,
 				ECB03AEA2787354D00674599 /* RestaurantView.swift in Sources */,
 				ECFBE7022789F7AF00102D69 /* Date.swift in Sources */,
