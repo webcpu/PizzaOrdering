@@ -114,4 +114,4 @@ It's a code challenge, but not a real project. Time is shorter than a real proje
 
 4. Assume that I only need to develop the app for iPhone. I can develop an app for iPhone and iPad, I just don't have enough time to do it.
 
-5. Assume I might be able to use incorrect pictures because the app can't get the necessary pictures from Backend which doens't support it.
+5. Assume I might be able to use incorrect pictures because the app can't get the necessary pictures from Backend which doesn't support it.
