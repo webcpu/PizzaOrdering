@@ -9,6 +9,11 @@ import SwiftUI
 import CoreLocation
 import CachedAsyncImage
 
+fileprivate var pizzaURL: URL? {
+    let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
+    return URL(string: pizzaURLString)
+}
+
 struct FoodView: View {
     var restaurant: Restaurant
     @State var food: Food
@@ -25,50 +30,61 @@ struct FoodView: View {
 
     var body: some View {
         ZStack {
-            List {
-                Section(food.category) {
-                    Text(food.name).font(.title).fontWeight(.semibold)
+            VStack(spacing: 5) {
+                HStack {
+                    Text(food.name).font(.largeTitle).bold()
+                    Spacer()
                 }
-                if food.topping != nil && !food.topping!.isEmpty {
-                    Section("Topping") {
-                        ForEach(food.topping ?? [], id: \.self) { item in
-                            Text(item)
-                                .frame(maxWidth: .infinity)
-                                .listRowSeparator(.hidden)
-
-                        }
-                    }
+                Image(food.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(5)
+                HStack {
+                    Text("Category").font(.title).bold().foregroundStyle(.secondary)
+                    Spacer()
                 }
+                HStack {
+                    Text(food.category)
+                    Spacer()
+                }
+                topping
+                Spacer()
             }
-            .frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .topLeading
-            )
-            .listStyle(.insetGrouped)
-            //            .listStyle(GroupedListStyle())
-            //        .background(.clear)
-            //.navigationTitle("Restaurants Near Me" + location.description)
-            //            .navigationTitle(viewModel.location.description)
-            //        .navigationTitle(food.name)
-
+            .padding(.horizontal, 20)
             VStack {
                 Spacer()
                 AddItemButton(restaurant: restaurant, food: food)
-                //                Image(systemName: "square.fill")
-                //                    .resizable()
-                //                    .frame(width: 24.0, height: 18.0)
-                //                    .foregroundColor(.pink)
-                //                Text("\(10)").foregroundColor(.white)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
         .task {
             //        await viewModel.update()
         }
-        .edgesIgnoringSafeArea(.horizontal)
+        //.edgesIgnoringSafeArea(.horizontal)
         .eraseToAnyView()
+    }
+    
+    var topping: some View {
+        if food.topping != nil && !food.topping!.isEmpty {
+            return AnyView(VStack(alignment: .leading, spacing: 0) {
+                Text("Topping").font(.title).bold()
+                    .foregroundStyle(.secondary)
+                
+                LazyVGrid(columns: [GridItem(.flexible(minimum: 25))]) {
+                    ForEach(food.topping ?? [], id: \.self) { item in
+                        HStack {
+                            Image(systemName: "checkmark")
+                            Text(item)
+                            Spacer()
+                        }.padding(.vertical, 5)
+                        
+                    }
+                }
+            }
+            )
+        } else {
+            return AnyView(EmptyView())
+        }
     }
 }
 
@@ -80,7 +96,7 @@ struct FoodOptionRow: View {
     var pizzaURL: URL? {
         let pizzaURLString = "https://www.iliveitaly.it/wp-content/uploads/2019/01/Pizza-in-Italian-Food.png"
         return URL(string: pizzaURLString) }
-
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -92,7 +108,7 @@ struct FoodOptionRow: View {
             }//.foregroundColor(Color.white)
             Spacer()
             CachedAsyncImage(url: pizzaURL,
-                       content: { image in
+                             content: { image in
                 //                                GeometryReader { geo in
                 image.resizable()
                     .scaledToFill()
@@ -100,7 +116,7 @@ struct FoodOptionRow: View {
                 //                    .clipped()
                 //                              }
             },
-                       placeholder: {
+                             placeholder: {
                 ProgressView()
             })
                 .cornerRadius(10)

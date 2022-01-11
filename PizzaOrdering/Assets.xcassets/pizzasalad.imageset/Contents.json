@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "swedish_pizza_sallad-1000x667.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "swedish_pizza_sallad-1000x667-1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "swedish_pizza_sallad-1000x667-2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
