@@ -88,3 +88,14 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+/Bin/.idea
+
+Tests/swift/**./test
+Tests/swift/**/test
+Tests/swift/**/.ninja_deps
+Tests/swift/**/.ninja_log
+/Bin/swift
+.swiftpm
+/Resources/questions/md/.\#987.vertical-order-traversal-of-a-binary-tree.md
+Resources/questions/md/.\#*
+/.\#README.md

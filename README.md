@@ -79,7 +79,7 @@ The architecture pattern is MVVM.
    - Checkout View
    - Order Placed View
    - Shopping Cart View Model
-   - Order Model
+   - Order Summary Model
 
 ### Order List
    - Order List View 
@@ -88,6 +88,7 @@ The architecture pattern is MVVM.
 
 ### Order
    - Order View
+   - Order Model
 
 ### Service 
    - Backend API
