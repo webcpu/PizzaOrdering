@@ -22,7 +22,6 @@ class RestaurantViewModel: ObservableObject {
     }
 
     func update() async {
-        //self.restaurant = restaurant //await BackendAPI.getRestaurant(restaurantId)
         self.items = await BackendAPI.getMenu(restaurant.id, "Pizza", "rank")
     }
     
@@ -32,30 +31,4 @@ class RestaurantViewModel: ObservableObject {
             $0.name.localizedCaseInsensitiveCompare(searchString) != .orderedSame
         }
     }
-
-
-//    func updateItems() {
-//
-//        cancellable = $restaurant
-//            .flatMap({r in
-//                Future { promise in
-//                    Task {
-//                        let items = await BackendAPI.getRestaurant(r.id)
-//                        promise(.success(items))
-//                    }
-//                }
-//            })
-//            .sink(receiveValue:
-//                    {(items: [Food]) -> Void in
-//                DDLogInfo("receiveValue: \(items)")
-//                DispatchQueue.main.async {
-//                    self.items = items //items.sorted(by: self.compareByDistance)
-//                }
-//            })
-//    }
-//    func compareByDistance(_ r1: Restaurant, r2: Restaurant) -> Bool {
-//        let distance1 = r1.distance(from: location)
-//        let distance2 = r2.distance(from: location)
-//        return distance1 < distance2
-//    }
 }

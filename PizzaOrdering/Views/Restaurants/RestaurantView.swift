@@ -48,9 +48,6 @@ struct RestaurantView: View {
         .navigationBarItems(leading: Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         }) {Image(systemName: "arrow.backward")})
-        //        .background(.clear)
-        //.navigationTitle("Restaurants Near Me" + location.description)
-        //            .navigationTitle(viewModel.location.description)
         .navigationTitle(viewModel.restaurant.name)
         .task {
             self.cartViewModel.restaurant = viewModel.restaurant
@@ -76,8 +73,6 @@ struct RestaurantView: View {
                     .accessibility(addTraits: .isButton)
 //                    .accessibility(identifier: "food" + String(index))
                     .accessibility(identifier: "food" + String(viewModel.items.firstIndex(of: item) ?? -1))
-
-                    //        .listRowSeparator(.hidden)
                 }
             }
             .frame(
@@ -125,7 +120,6 @@ struct FoodRow: View {
                 Spacer()
                 Text(food.category).foregroundStyle(.secondary)
                 Spacer()
-                //                Text(restaurant.name)
             }
             .font(.subheadline)
             Spacer()
@@ -135,15 +129,9 @@ struct FoodRow: View {
                 .frame(width: 160, height: 90)
                 .cornerRadius(10)
         }
-        //.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .listRowBackground(
             Color(.systemGray3).edgesIgnoringSafeArea([.leading, .trailing])
         )
-        //        .onAppear {
-        //            UITableView.appearance().backgroundColor = .clear
-        //            //            UITableView.back
-        //        }
-        //.background(.red)
         .eraseToAnyView()
     }
 }

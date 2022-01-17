@@ -20,7 +20,6 @@ struct FoodView: View {
 #if DEBUG
     @ObservedObject var iO = injectionObserver
 #endif
-//    @StateObject var viewModel: FoodViewModel
 
     init(restaurant: Restaurant, food: Food) {
         self.restaurant = restaurant
@@ -56,10 +55,6 @@ struct FoodView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .task {
-            //        await viewModel.update()
-        }
-        //.edgesIgnoringSafeArea(.horizontal)
         .eraseToAnyView()
     }
     
@@ -102,18 +97,14 @@ struct FoodOptionRow: View {
                 Spacer()
                 Text(food.category).opacity(0.5)
                 Text(food.name)
-                //                Text(restaurant.name)
                 Text("SEK \(food.price.description)").font(.body)
-            }//.foregroundColor(Color.white)
+            }
             Spacer()
             CachedAsyncImage(url: pizzaURL,
                              content: { image in
-                //                                GeometryReader { geo in
                 image.resizable()
                     .scaledToFill()
                     .frame(width: 160, height: 90)
-                //                    .clipped()
-                //                              }
             },
                              placeholder: {
                 ProgressView()
@@ -121,7 +112,6 @@ struct FoodOptionRow: View {
                 .cornerRadius(10)
         }
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-        //.background(.red)
         .eraseToAnyView()
     }
 }

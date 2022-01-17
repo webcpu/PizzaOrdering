@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     enum Tab {
+        case unknown
         case browse
         case orders
     }
@@ -26,13 +27,21 @@ struct ContentView: View {
             restaurantsView
             ordersView
         }
+        .onAppear {
+            // WORKAROUND: simulate change of selection on appear !!
+            let value = selection
+            selection = .unknown
+            DispatchQueue.main.async {
+                selection = value
+            }
+        }
         .eraseToAnyView()
     }
-
+    
     var personButton = Button(action: {print("person")}) {
         Image(systemName: "person")
     }
-
+    
     var cartButton = Button(action: {print("cart")}) {
         Image(systemName: "cart")
     }
@@ -41,21 +50,21 @@ struct ContentView: View {
 extension ContentView {
     var restaurantsView: some View {
         return RestaurantsView()
-        .tabItem {
-            Image(systemName: "magnifyingglass.circle.fill")
-            Text("Browse")
-        }
-        .tag(Tab.browse)
-        .eraseToAnyView()
+            .tabItem {
+                Image(systemName: "magnifyingglass.circle.fill")
+                Text("Browse")
+            }
+            .tag(Tab.browse)
+            .eraseToAnyView()
     }
-
+    
     var ordersView: some View {
         return OrdersView()
-        .tabItem {
-            Image(systemName: "list.bullet.rectangle.portrait.fill")
-            Text("Orders")
-        }
-        .tag(Tab.orders)
-        .eraseToAnyView()
+            .tabItem {
+                Image(systemName: "list.bullet.rectangle.portrait.fill")
+                Text("Orders")
+            }
+            .tag(Tab.orders)
+            .eraseToAnyView()
     }
 }
