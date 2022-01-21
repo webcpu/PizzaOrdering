@@ -111,7 +111,6 @@ struct FoodRow: View {
         return URL(string: pizzaURLString) }
     
     var body: some View {
-        
         HStack {
             VStack(alignment: .leading) {
                 Text(food.name).font(.headline)

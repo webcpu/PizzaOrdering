@@ -40,7 +40,7 @@ class OrdersViewModel: ObservableObject {
             .sink(receiveValue: {(arg0: (CLLocation, [Restaurant])) -> Void in
                 let (location, items) = arg0
                 DDLogInfo("receiveValue: \(arg0)")
-                DispatchQueue.main.async {
+                Task { @MainActor in
                     self.items = items.sorted(by: self.compareByDistance)
                     self.location = location
                 }

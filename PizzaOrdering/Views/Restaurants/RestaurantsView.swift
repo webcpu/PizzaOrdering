@@ -77,7 +77,7 @@ struct RestaurantRow: View {
                          content: { image in
             image.resizable()
                 .scaledToFill()
-                .frame(width: .infinity, height: 150)
+                .frame(maxWidth: .infinity, maxHeight: 150)
                 .clipped()
         },
                          placeholder: {
