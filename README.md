@@ -1,4 +1,13 @@
 # Pizza Ordering App
+This is a pizza ordering demo app which was developed using InjectionIII.
+
+InjectionIII allows you to update the implementation of functions and any method of a class, struct or enum incrementally in the iOS simulator without having to rebuild or restart your application.
+
+You can use this project to learn MVVM, SwiftUI, Combine and InjectionIII.
+To use InjectionIII, please install InjectionIII first.
+
+https://github.com/johnno1962/InjectionIII
+
 
 ## 1. Requirements
 ### Functional Requirements
